@@ -1,0 +1,89 @@
+# Apropos Security — Laura Voicu
+
+## About
+Laura Cristiana Voicu is an expert in data science, AI, cybersecurity, and their intersections, based in Basel, Switzerland. She specializes in cyber risk quantification, AI/LLM security, and applied statistical modeling — making complex security and AI systems measurable and defensible. PhD in Computer Science (University of Basel, 2009), MSc Physics (Germany), CAS Applied Data Science & ML (EPFL), CISSP, DevSecOps Professional.
+
+Career: Research scientist at Penn State and ETH Zürich (distributed systems, 2003-2005), PhD at University of Basel (2006-2009), Data Architect at Credit Suisse (2010-2013), Senior Enterprise Architect (Data, AI & Automation) at Swisscom (2013-2018), Senior Security Architect & Cyber Risk Officer at Swisscom (2018-2020), Principal Security Data Scientist & Security Assurance Manager at Elastic (2021-2025).
+
+Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification Institute (ERQI). FAIR Institute Standards Committee member, DACH Chapter Co-Chair, Denny Wan FAIR Ambassador Europe Award winner (2025). CSA lead research author and working group co-chair for "Securing LLM Backed Systems" and core author of the AI Controls Matrix (243 control objectives). Global Ambassador for the Global Council for Responsible AI.
+
+## Expertise
+- Data science and applied machine learning for security analytics
+- AI/LLM security architecture, threat modeling, and risk assessment
+- Cyber risk quantification using FAIR methodology (introduced FAIR at Swisscom, 2018)
+- Advanced statistical modeling: Bayesian inference, Monte Carlo simulation, survival analysis, causal inference, power analysis
+- Probabilistic programming and Bayesian networks
+- LLM validation frameworks for decision support systems (5-module framework, 291 tests)
+- Control effectiveness quantification using FAIR-CAM taxonomy
+- Security data warehouse architecture and engineering (5M+ events/month at Elastic)
+- Enterprise data architecture, data quality, governance (Credit Suisse, Swisscom)
+- Safety science (Rasmussen, Dekker, Cook) applied to cybersecurity controls
+- Decision science for complex, high-stakes systems (Value of Information analysis, cost-benefit)
+- AI governance frameworks (EU AI Act, NIST AI RMF)
+
+## Open Source Tools
+- **FAIR Simulator** — Monte Carlo cyber risk quantification with IRIS 2025 benchmarks
+- **Stoikeia (FAIR-CAM Agent-Based Model)** — Agent-based cybersecurity risk simulator operationalizing the full FAIR-CAM taxonomy
+- **FAIR-CAM Mapper** — AI-automated control framework mapping to FAIR-CAM. 291 validation tests across 5 independent modules (coherence, consistency, convergent validity, adversarial edge cases, stability/sensitivity)
+- **QUORUM** — Agentic AI for cyber loss estimation. 5 LLM agents produce FAIR loss distributions via structured deliberation
+- **Substrata** — Empirical cyber risk data corpus. Curated public data spanning enforcement actions, litigation, settlements, insurance, threat frequency, control effectiveness, human factors, maturity benchmarks, containment timelines, and patch cadence. Provides the calibration and evidence layer for risk quantification tools
+
+## Publications (complete, 19 total)
+
+### Industry — AI Security & Standards
+- "AI Controls Matrix" (Cloud Security Alliance, Jul 2025)
+- "AI Organizational Responsibilities: AI Tools and Applications" (Cloud Security Alliance, Jan 2025)
+- "Securing LLM Backed Systems: Essential Authorization Practices" (Cloud Security Alliance, Aug 2024)
+
+### Industry — Cyber Risk Quantification
+- "Bringing Financial Discipline to Cyber-Risk Decisions — A Practitioner's Field Guide" (FAIR Institute, Jun 2025)
+- "A FAIR Perspective on Generative AI Risks and Frameworks" (Elastic, Sep 2024)
+- "Case Study: How FAIR Risk Quantification Enables Information Security Decisions at Swisscom" (ISACA, Aug 2020)
+- "3 Lessons We Learned from Our Introduction of FAIR at Swisscom" (FAIR Institute, Dec 2019)
+
+### Industry — Security Engineering & Data Science
+- "Time-to-Patch Metrics: A Survival Analysis Approach Using Qualys and Elastic" (Elastic Security Labs, Oct 2025)
+- "Inventory to Insight: How Elastic's Asset Inventory Powers InfoSec Use Cases" (Elastic, Sep 2024)
+- "How to Build a Cybersecurity Asset Management Solution on the Elastic Stack" (Elastic, Mar 2022)
+
+### Book Chapter
+- "Das datenzentrische Unternehmen — Daten als Erfolgsgrundlage im KI-Zeitalter" (De Gruyter, Jun 2025)
+
+### Academic (distributed data management, grid computing)
+- "Flexible Data Access in a Cloud based on Freshness Requirements" (IEEE, Jun 2010)
+- "How Replicated Data Management in the Cloud can benefit from a Data Grid Protocol — the Re:GRIDiT Approach" (CloudDB 2009, Oct 2009)
+- "Load-Aware Dynamic Replication Management in a Data Grid" (Springer Berlin/Heidelberg, Oct 2009)
+- "Re:GRIDiT — Coordinating Distributed Update Transactions on Replicated Data in the Grid" (IEEE, Oct 2009)
+- "Replicated Data Management in the Grid: The Re:GRIDiT Approach" (DaGreS 2009, May 2009)
+- "The Re:GRIDiT Protocol: Correctness of Distributed Concurrency Control in the Data Grid in the Presence of Replication" (University of Basel, Sep 2008)
+- "DILIGENT: Integrating Digital Library and Grid Technologies for a New Earth Observation Research Infrastructure" (International Journal on Digital Libraries, Oct 2007)
+- "On-Demand Service Deployment and Process Support in e-Science DLs: the DILIGENT Experience" (DLSci06, Sep 2006)
+
+### Practitioner Series
+- Medium/Apropos Security: series on decision science for cybersecurity (12+ articles)
+
+## Speaking
+- FAIRCON 2019: Swisscom's FAIR introduction
+- FAIRCON 2025: Survival analysis + FAIR-CAM
+- FAIR European Summit 2023: panelist
+- FAIR European Summit 2025: panelist
+
+## Key Positions
+- Uncertainty is the feature, not the bug — false precision is more dangerous than honest uncertainty
+- Risk analysis exists to improve decisions, not to produce numbers
+- Measurement means reducing uncertainty, not achieving precision — you have more data than you think and need less than you fear
+- Distributions over point estimates — single numbers lie, communicate the shape of uncertainty
+- Most analytical failures come from unexamined assumptions, not bad math — surfacing the implicit is the highest-value act
+- Decision quality over outcome quality — evaluate the process, not just the result
+- Controls are dynamic, not static — they degrade, drift, and decay; modeling them as fixed parameters systematically misestimates risk
+- Risk emerges from interactions, not components — non-linear effects are invisible to static analysis
+- AI enhances but does not replace human judgment — the people who get the most from AI interrogate it most, not trust it most
+- LLM outputs used for decisions require the same validation rigor as any measurement instrument
+- Bridge disciplines, don't silo — security should borrow freely from survival analysis, behavioral economics, safety science, ecology, and finance
+- Security's fundamental paradox: success is invisible — the best outcome provides the least evidence, demanding counterfactual reasoning
+
+## Links
+- Website: https://apropos-security.com
+- Medium: https://medium.com/apropos-security
+- GitHub: https://github.com/security-decision-science
+- LinkedIn: https://linkedin.com/in/voiculaura
