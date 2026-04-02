@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apropos Security — Laura Voicu</title>
+    <meta name="description" content="Decision science for cybersecurity. Empirical risk quantification, measurement validity, and honest modeling. By Laura Voicu, PhD.">
+    <meta name="author" content="Laura Cristiana Voicu">
+    <meta property="og:title" content="Apropos Security — Laura Voicu">
+    <meta property="og:description" content="Decision science for cybersecurity. Empirical risk quantification, measurement validity, and honest modeling.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apropos-security.com">
+    <meta property="og:image" content="https://apropos-security.com/og-card.png">
+    <link rel="icon" type="image/png" href="/logo-180.png">
+    <link rel="apple-touch-icon" href="/logo-180.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apropos Security — Laura Voicu">
+    <meta name="twitter:description" content="Decision science for cybersecurity. Empirical risk quantification, measurement validity, and honest modeling.">
+    <meta name="keywords" content="cyber risk quantification, FAIR, decision science, security metrics, Monte Carlo simulation, survival analysis, Bayesian, measurement validity, FAIR-CAM, control effectiveness, LLM validation">
+    <link rel="canonical" href="https://apropos-security.com/">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary">
+    <meta name="ai-summary" content="Laura Voicu is a cyber risk quantification expert (PhD CS, CISSP) specializing in FAIR methodology, Bayesian inference, and AI security. Author of 19 publications including CSA AI Controls Matrix. Co-founder of ERQI. Builds open-source tools: FAIR Simulator, QUORUM, FAIR-CAM Mapper.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Laura Cristiana Voicu",
+      "url": "https://apropos-security.com",
+      "image": "https://apropos-security.com/og-card.png",
+      "jobTitle": "Principal Security Data Scientist",
+      "description": "Cyber risk quantification, AI security, and applied data science. PhD Computer Science, CISSP.",
+      "alumniOf": [
+        {"@type": "CollegeOrUniversity", "name": "University of Basel"},
+        {"@type": "CollegeOrUniversity", "name": "EPFL"}
+      ],
+      "knowsAbout": [
+        "cyber risk quantification",
+        "FAIR methodology",
+        "FAIR-CAM",
+        "Bayesian inference",
+        "Monte Carlo simulation",
+        "survival analysis",
+        "AI security",
+        "LLM validation",
+        "causal inference",
+        "security data science"
+      ],
+      "sameAs": [
+        "https://linkedin.com/in/voiculaura",
+        "https://github.com/security-decision-science",
+        "https://medium.com/apropos-security"
+      ],
+      "memberOf": [
+        {
+          "@type": "Role",
+          "roleName": "Co-Founder & CDSO",
+          "memberOf": {"@type": "Organization", "name": "Enterprise Risk Quantification Institute (ERQI)"}
+        },
+        {
+          "@type": "Role",
+          "roleName": "Standards Committee & DACH Co-Chair",
+          "memberOf": {"@type": "Organization", "name": "FAIR Institute"}
+        },
+        {
+          "@type": "Role",
+          "roleName": "Lead Author & Working Group Co-Chair",
+          "memberOf": {"@type": "Organization", "name": "Cloud Security Alliance"}
+        },
+        {
+          "@type": "Role",
+          "roleName": "Global Ambassador",
+          "memberOf": {"@type": "Organization", "name": "Global Council for Responsible AI"}
+        }
+      ],
+      "award": "Denny Wan FAIR Ambassador Europe Award 2025"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00352c",
+                        "primary-container": "#024e41",
+                        "secondary": "#4da8a8",
+                        "secondary-warm": "#7a6e5d",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c19",
+                        "on-surface-variant": "#3f4848",
+                        "outline-variant": "#bfc8c8",
+                        "surface": "#fafaf7",
+                        "surface-low": "#f4f4ef",
+                        "surface-high": "#eaeae5",
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fafaf7;
+            color: #1a1c19;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .serif-italic { font-family: 'Newsreader', serif; }
+        .scholar-gradient { background: linear-gradient(135deg, #00352c, #024e41); }
+        #menu-toggle.open #bar1 { transform: rotate(45deg) translate(4px, 4px); }
+        #menu-toggle.open #bar2 { opacity: 0; }
+        #menu-toggle.open #bar3 { transform: rotate(-45deg) translate(4px, -4px); }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+
+<!-- Nav -->
+<nav class="fixed w-full top-0 z-50 bg-surface/90 backdrop-blur-xl">
+    <div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+        <a href="/" class="flex items-center gap-3">
+            <img src="/logo.png" alt="Apropos Security" class="h-8 w-8 rounded-full">
+            <span class="font-headline font-bold text-xl tracking-tighter text-primary uppercase">Apropos Security</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-10 font-headline italic text-lg tracking-tight">
+            <a class="text-secondary border-b border-secondary/30" href="#writing">Writing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#publications">Publications</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#tools">Tools</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#speaking">Speaking</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#about">About</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar1"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar2"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar3"></span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 px-8 py-6 space-y-4 font-headline italic text-lg tracking-tight">
+        <a class="block text-secondary" href="#writing" onclick="closeMobileMenu()">Writing</a>
+        <a class="block text-on-surface-variant" href="#publications" onclick="closeMobileMenu()">Publications</a>
+        <a class="block text-on-surface-variant" href="#tools" onclick="closeMobileMenu()">Tools</a>
+        <a class="block text-on-surface-variant" href="#speaking" onclick="closeMobileMenu()">Speaking</a>
+        <a class="block text-on-surface-variant" href="#about" onclick="closeMobileMenu()">About</a>
+    </div>
+</nav>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    menuToggle.addEventListener('click', function() {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+    });
+</script>
+
+<main>
+
+<!-- Hero -->
+<section class="pt-40 pb-24 px-8 max-w-screen-2xl mx-auto" id="hero">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-end">
+        <div class="md:col-span-8">
+            <span class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-8 block">Data &middot; AI &middot; Security &middot; Risk</span>
+            <h1 class="text-5xl md:text-7xl font-headline font-light tracking-tight leading-[1.1] text-primary">
+                Making security <span class="italic font-normal">measurable</span>, AI <span class="italic font-normal">trustworthy</span>, and risk <span class="italic font-normal">defensible</span>.
+            </h1>
+            <p class="mt-10 text-xl text-on-surface-variant font-body font-light max-w-2xl leading-relaxed">
+                I work at the intersection of data science, AI, and cybersecurity &mdash; applying statistical modeling,
+                Bayesian inference, and machine learning to problems most people wave away as unmeasurable.
+                From quantifying cyber risk with FAIR to securing LLM systems to building validation frameworks
+                for AI decision support.
+            </p>
+        </div>
+        <div class="md:col-span-4">
+            <div class="bg-surface-low p-10">
+                <img src="/banner.png" alt="Apropos Security — Make Better Decisions Today" class="w-full h-auto mb-6">
+                <div class="space-y-3">
+                    <a href="https://medium.com/apropos-security" class="block font-label text-xs uppercase tracking-widest text-secondary hover:text-primary transition-colors">Medium &rarr;</a>
+                    <a href="https://github.com/security-decision-science" class="block font-label text-xs uppercase tracking-widest text-secondary hover:text-primary transition-colors">GitHub &rarr;</a>
+                    <a href="https://linkedin.com/in/voiculaura" class="block font-label text-xs uppercase tracking-widest text-secondary hover:text-primary transition-colors">LinkedIn &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Writing (Medium articles) -->
+<section class="py-24 bg-surface-low" id="writing">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 border-b border-outline-variant/10 pb-6">
+            <h2 class="text-4xl md:text-5xl font-headline italic text-primary">Writing</h2>
+            <a href="https://medium.com/apropos-security" class="font-label text-xs uppercase tracking-widest text-secondary mt-4 md:mt-0 hover:text-primary transition-colors">
+                View all on Medium &rarr;
+            </a>
+        </div>
+
+        <div class="space-y-0">
+            <div class="group border-b border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">Risk Epistemology</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-xl md:text-2xl font-headline group-hover:italic transition-all duration-300">Between Black Swans and Bell Curves</h3>
+                    <p class="font-body text-on-surface-variant mt-2 text-sm">Why the CRQ community needs a better map of what models can and cannot do. Taleb's taxonomy, gray swans, and honest uncertainty.</p>
+                </div>
+            </div>
+
+            <div class="group border-b border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">AI + Decision Science</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-xl md:text-2xl font-headline group-hover:italic transition-all duration-300">Decision Science AI Agents</h3>
+                    <p class="font-body text-on-surface-variant mt-2 text-sm">What happens when you hand risk decisions to LLMs &mdash; and what validation looks like when the stakes are real.</p>
+                </div>
+            </div>
+
+            <div class="group border-b border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">Bayesian Methods</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-xl md:text-2xl font-headline group-hover:italic transition-all duration-300">In Cybersecurity Risk, You Don't Need More Data &mdash; You Need Bayesian Thinking</h3>
+                    <p class="font-body text-on-surface-variant mt-2 text-sm">Encoding expert beliefs, updating with evidence, and why prior distributions are not guessing.</p>
+                </div>
+            </div>
+
+            <div class="group border-b border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">Quantitative Foundations</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-xl md:text-2xl font-headline group-hover:italic transition-all duration-300">Security Through the Lens of Statistical Distributions</h3>
+                    <p class="font-body text-on-surface-variant mt-2 text-sm">Normal, Poisson, Beta &mdash; the distributions that actually matter for security decisions, and why averages lie.</p>
+                </div>
+            </div>
+
+            <div class="group border-b border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">Measurement</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-xl md:text-2xl font-headline group-hover:italic transition-all duration-300">Power Analysis in Cybersecurity Risk Quantification</h3>
+                    <p class="font-body text-on-surface-variant mt-2 text-sm">How much data do you actually need? When to trust your sample and when to keep collecting.</p>
+                </div>
+            </div>
+
+            <div class="group py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">Decision Analysis</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-xl md:text-2xl font-headline group-hover:italic transition-all duration-300">Measuring the Immeasurable: Quantifying the Value of Data</h3>
+                    <p class="font-body text-on-surface-variant mt-2 text-sm">Our best-case scenario is nothing happens. And measuring nothing is hard.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Publications -->
+<section class="py-24" id="publications">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="flex flex-col md:flex-row justify-between items-baseline mb-20 border-b border-outline-variant/10 pb-6">
+            <h2 class="text-4xl md:text-5xl font-headline italic text-primary">Publications</h2>
+            <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant mt-4 md:mt-0">2006 &mdash; 2025 &middot; 19 publications</span>
+        </div>
+
+        <!-- Industry -->
+        <div class="mb-6">
+            <span class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary block mb-8">Industry &amp; Standards</span>
+        </div>
+
+        <div class="space-y-0 mb-16">
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2025</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">Time-to-Patch Metrics: A Survival Analysis Approach Using Qualys and Elastic</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Elastic Security Labs</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2025</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">AI Controls Matrix</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Cloud Security Alliance &middot; Core Author</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2025</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">Bringing Financial Discipline to Cyber-Risk Decisions &mdash; A Practitioner's Field Guide</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">FAIR Institute</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2025</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">Das datenzentrische Unternehmen &mdash; Daten als Erfolgsgrundlage im KI-Zeitalter</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">De Gruyter &middot; Book chapter</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2025</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">AI Organizational Responsibilities: AI Tools and Applications</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Cloud Security Alliance</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2024</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">A FAIR Perspective on Generative AI Risks and Frameworks</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Elastic</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2024</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">Securing LLM Backed Systems: Essential Authorization Practices</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Cloud Security Alliance &middot; Lead author</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2024</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">Inventory to Insight: How Elastic's Asset Inventory Powers InfoSec Use Cases</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Elastic</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2022</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">How to Build a Cybersecurity Asset Management Solution on the Elastic Stack</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Elastic</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2020</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">Case Study: How FAIR Risk Quantification Enables Information Security Decisions at Swisscom</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">ISACA Journal</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline hover:bg-surface-low/50 transition-colors px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2019</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-lg font-headline group-hover:italic transition-all">3 Lessons We Learned from Our Introduction of FAIR at Swisscom</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">FAIR Institute</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academic -->
+        <div class="mb-6">
+            <span class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary block mb-8">Academic &middot; Distributed Data Management</span>
+        </div>
+
+        <div class="space-y-0">
+            <div class="group border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2010</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-base font-headline">Flexible Data Access in a Cloud based on Freshness Requirements</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">IEEE</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2009</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-base font-headline">The Re:GRIDiT Approach &mdash; Replicated Data Management in the Cloud via Data Grid Protocol</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">CloudDB 2009</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2009</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-base font-headline">Load-Aware Dynamic Replication Management in a Data Grid</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Springer Berlin / Heidelberg</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2009</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-base font-headline">Re:GRIDiT &mdash; Coordinating Distributed Update Transactions on Replicated Data in the Grid</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">IEEE</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2008</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-base font-headline">The Re:GRIDiT Protocol: Correctness of Distributed Concurrency Control in the Data Grid</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">University of Basel</p>
+                </div>
+            </div>
+            <div class="group border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2007</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-base font-headline">DILIGENT: Integrating Digital Library and Grid Technologies</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">International Journal on Digital Libraries</p>
+                </div>
+            </div>
+            <div class="group py-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline px-4 -mx-4">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2006</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-base font-headline">On-Demand Service Deployment and Process Support in e-Science DLs</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">DLSci06 &middot; ECDL Workshop</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tools -->
+<section class="py-24 bg-surface-low" id="tools">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="mb-20">
+            <h2 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">Tools &amp; Research</h2>
+            <div class="w-24 h-px bg-secondary"></div>
+            <p class="mt-6 text-lg text-on-surface-variant font-body font-light max-w-2xl">Open-source tools for cyber risk quantification. Built to support real decisions, not to produce impressive numbers.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/10">
+            <a href="https://github.com/security-decision-science" class="group bg-surface p-10 flex flex-col justify-between min-h-[280px] hover:bg-white transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">React + Python &middot; CC BY-NC-SA 4.0</span>
+                    <h3 class="text-2xl font-headline leading-tight group-hover:italic transition-all">FAIR Simulator</h3>
+                </div>
+                <p class="mt-auto text-sm font-body text-on-surface-variant">Monte Carlo risk quantification with IRIS 2025 benchmarks. Scenario creation, sensitivity analysis, portfolio aggregation.</p>
+            </a>
+            <div class="bg-white p-10 flex flex-col justify-between min-h-[280px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python + Mesa + React &middot; Coming soon</span>
+                    <h3 class="text-2xl font-headline leading-tight">FAIR-CAM Agent-Based Model</h3>
+                </div>
+                <p class="mt-auto text-sm font-body text-on-surface-variant">Agent-based cybersecurity risk simulator. Operationalizes the full FAIR-CAM taxonomy.</p>
+            </div>
+            <div class="bg-surface p-10 flex flex-col justify-between min-h-[280px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python + Next.js &middot; Coming soon</span>
+                    <h3 class="text-2xl font-headline leading-tight">QUORUM</h3>
+                </div>
+                <p class="mt-auto text-sm font-body text-on-surface-variant">Agentic AI for cyber loss estimation. 5 LLM agents deliberate over structured rounds to produce per-component FAIR loss distributions.</p>
+            </div>
+            <a href="https://github.com/security-decision-science" class="group bg-white p-10 flex flex-col justify-between min-h-[280px] hover:bg-surface transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python + Elasticsearch &middot; Elastic Security Labs</span>
+                    <h3 class="text-2xl font-headline leading-tight group-hover:italic transition-all">Survival Analysis for Vulnerability Management</h3>
+                </div>
+                <p class="mt-auto text-sm font-body text-on-surface-variant">Kaplan-Meier survival analysis applied to time-to-patch metrics using Qualys VMDR data. Published as Elastic Security Labs blog post.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Speaking -->
+<section class="py-24" id="speaking">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="mb-20">
+            <h2 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">Speaking</h2>
+            <div class="w-24 h-px bg-secondary"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/10">
+            <div class="bg-surface p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2025</span>
+                    <h3 class="text-2xl font-headline leading-tight italic">The $ Value of Faster Vulnerability Remediation</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">How much risk reduction does faster patching buy you?</p>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">FAIRCON 2025</p>
+            </div>
+            <div class="bg-white p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2025</span>
+                    <h3 class="text-2xl font-headline leading-tight">The Business ROI of Risk Management</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Bringing financial discipline to cyber risk decisions.</p>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">FAIR European Summit 2025</p>
+            </div>
+            <div class="bg-surface p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2023</span>
+                    <h3 class="text-2xl font-headline leading-tight italic">Moving from a Compliance-Based to a Risk-Based Approach to Cybersecurity</h3>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">FAIR European Summit 2023 &middot; London &middot; Panelist</p>
+            </div>
+            <div class="bg-white p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2023</span>
+                    <h3 class="text-2xl font-headline leading-tight">Genev'Hack</h3>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">Speaker</p>
+            </div>
+            <div class="bg-surface p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2022</span>
+                    <h3 class="text-2xl font-headline leading-tight italic">Zero Day Conference</h3>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">Panelist</p>
+            </div>
+            <div class="bg-white p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2019</span>
+                    <h3 class="text-2xl font-headline leading-tight">How Quantification Enables Better Decision Making</h3>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">FAIRCON 2019 &middot; Use Case Panorama &middot; Panelist</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About / Contact -->
+<section class="py-32 scholar-gradient text-on-primary" id="about">
+    <div class="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div>
+            <span class="font-label text-[10px] uppercase tracking-[0.3em] text-secondary block mb-8">About</span>
+            <h2 class="text-4xl md:text-5xl font-headline italic leading-tight mb-10">Laura Voicu</h2>
+            <div class="space-y-6 text-lg font-body font-light leading-relaxed text-white/80">
+                <p>
+                    I specialize in cyber risk quantification, AI security, and applied data science &mdash; the kind of work
+                    where statistical modeling, machine learning, and domain expertise converge to make hard problems measurable.
+                    Bayesian inference, Monte Carlo simulation, survival analysis, causal reasoning &mdash; these aren't abstractions
+                    for me; they're the tools I use to translate security problems into defensible decisions.
+                </p>
+                <p>
+                    Two decades in technology: data architecture at Credit Suisse, enterprise data architecture and AI/RPA automation, cyber security at
+                    Swisscom (where I introduced FAIR risk quantification in 2018), and building Elastic's security data science and
+                    security assurance practice, building
+                    a security data warehouse, and leading the cyber risk quantification program.
+                    Earlier: research in distributed systems at ETH Z&uuml;rich and Penn State.
+                </p>
+                <p>
+                    PhD Computer Science (University of Basel) &middot; MSc Physics &middot;
+                    CAS Applied Data Science &amp; ML (EPFL) &middot; CISSP
+                </p>
+            </div>
+        </div>
+        <div class="flex flex-col justify-between">
+            <div class="space-y-10">
+                <div>
+                    <span class="font-label text-[10px] uppercase tracking-[0.3em] block mb-4 text-secondary">Affiliations</span>
+                    <div class="space-y-2 font-headline italic text-xl text-white/90">
+                        <p>ERQI &mdash; Co-Founder &amp; CDSO</p>
+                        <p>FAIR Institute &mdash; Standards Committee &amp; DACH Co-Chair</p>
+                        <p>Cloud Security Alliance &mdash; Lead Author &amp; WG Co-Chair</p>
+                        <p>Global Council for Responsible AI &mdash; Global Ambassador</p>
+                        <p>Startup Advisory &mdash; Product Development &amp; Data/AI Strategy</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-label text-[10px] uppercase tracking-[0.3em] block mb-4 text-secondary">Recognition</span>
+                    <p class="font-headline italic text-xl text-white/90">Denny Wan FAIR Ambassador Europe Award, 2025</p>
+                </div>
+            </div>
+            <div class="mt-16 pt-10 border-t border-white/10">
+                <span class="font-label text-[10px] uppercase tracking-[0.3em] block mb-6 text-secondary">Connect</span>
+                <p class="font-body text-white/60 text-sm mb-6">Interested in collaboration, speaking, or making cybersecurity measurable? Reach out via LinkedIn.</p>
+                <div class="flex gap-10">
+                    <a class="font-label text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors" href="https://linkedin.com/in/voiculaura">LinkedIn &rarr;</a>
+                    <a class="font-label text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors" href="https://github.com/security-decision-science">GitHub</a>
+                    <a class="font-label text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors" href="https://medium.com/apropos-security">Medium</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-low py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-screen-2xl mx-auto gap-6">
+        <div class="font-label text-[10px] uppercase tracking-[0.2em] font-medium text-primary opacity-60">
+            &copy; 2026 Laura Voicu &middot; Apropos Security
+        </div>
+        <div class="flex gap-10 font-label text-[10px] uppercase tracking-[0.2em] font-medium text-on-surface-variant/60">
+            <a class="hover:text-secondary transition-all" href="https://linkedin.com/in/voiculaura">LinkedIn</a>
+            <a class="hover:text-secondary transition-all" href="https://github.com/security-decision-science">GitHub</a>
+            <a class="hover:text-secondary transition-all" href="https://medium.com/apropos-security">Medium</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
