@@ -123,6 +123,9 @@ Ongoing series on Medium/Apropos Security covering decision science for cybersec
 ## Recognition
 - Denny Wan FAIR Ambassador Europe Award, 2025
 
+## Current Direction
+Building the computational and empirical foundations for next-generation cyber risk quantification — agent-based models calibrated against real loss data, FAIR-CAM taken from framework to working simulation, and structured LLM deliberation for loss estimation. Open to senior advisory roles, embedded positions at organizations with ambition and data maturity to go beyond standard CRQ, and research collaboration on control effectiveness or loss modeling.
+
 ## Links
 - Website: https://apropos-security.com
 - Medium: https://medium.com/apropos-security
