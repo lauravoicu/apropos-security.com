@@ -54,7 +54,7 @@ Kaplan-Meier survival analysis applied to time-to-patch metrics using Qualys VMD
 ### Substrata
 Empirical cyber risk data corpus — curated public data spanning enforcement actions, litigation outcomes, settlements, insurance, threat frequency, control effectiveness, human factors, maturity benchmarks, containment timelines, patch cadence, and financial impacts. Two-tier pipeline: normalize then enrich. Provides the calibration and evidence layer underpinning risk quantification, loss estimation, threat frequency, and control effectiveness models.
 
-## Publications (Complete, 19 Total)
+## Publications (Complete, 20 Total)
 
 ### Industry — AI Security & Standards
 1. "AI Controls Matrix" — Cloud Security Alliance, July 2025. Core author. 243 control objectives for AI systems governance, risk, and compliance.
@@ -62,7 +62,8 @@ Empirical cyber risk data corpus — curated public data spanning enforcement ac
 3. "Securing LLM Backed Systems: Essential Authorization Practices" — Cloud Security Alliance, August 2024. Lead author. Framework for securing LLM-integrated applications with emphasis on authorization, data flow control, and prompt injection defense.
 
 ### Industry — Cyber Risk Quantification
-4. "Bringing Financial Discipline to Cyber-Risk Decisions — A Practitioner's Field Guide" — FAIR Institute, June 2025. Practical guide for implementing quantitative cyber risk programs.
+4. "Measuring the Return on Cyber Risk Reduction" — FAIR Institute, 2026. Quantifying the financial return of cybersecurity risk reduction investments.
+5. "Bringing Financial Discipline to Cyber-Risk Decisions — A Practitioner's Field Guide" — FAIR Institute, June 2025. Practical guide for implementing quantitative cyber risk programs.
 5. "A FAIR Perspective on Generative AI Risks and Frameworks" — Elastic, September 2024. Analysis of how FAIR methodology applies to emerging generative AI risks.
 6. "Case Study: How FAIR Risk Quantification Enables Information Security Decisions at Swisscom" — ISACA Journal, August 2020. Detailed case study of FAIR implementation at a major European telco.
 7. "3 Lessons We Learned from Our Introduction of FAIR at Swisscom" — FAIR Institute, December 2019. Early practitioner lessons from enterprise FAIR adoption.
@@ -89,11 +90,12 @@ Empirical cyber risk data corpus — curated public data spanning enforcement ac
 Ongoing series on Medium/Apropos Security covering decision science for cybersecurity. Topics include: risk epistemology (black swans vs. bell curves), Bayesian methods for security, statistical distributions for security decisions, power analysis in CRQ, Value of Information analysis, and AI decision agents.
 
 ## Speaking Engagements
+- Zero-Day Conference 2026: "Don't Trust the Model: Authorization for LLM-Powered Systems" — interactive session on authorization architecture for LLM-powered systems
 - FAIRCON 2025: "The $ Value of Faster Vulnerability Remediation" — survival analysis + FAIR-CAM applied to patching economics
 - FAIR European Summit 2025: "The Business ROI of Risk Management" — panelist
 - FAIR European Summit 2023: "Moving from Compliance-Based to Risk-Based Cybersecurity" — London, panelist
-- Genev'Hack 2023: Speaker
-- Zero Day Conference 2022: Panelist
+- Genev'Hack 2023: "Securing the Elastic Way: an InfoSec Perspective"
+- Zero Day Conference 2022: "CISO Round Table: Risk Management" — panelist
 - FAIRCON 2019: "How Quantification Enables Better Decision Making" — Swisscom use case
 
 ## Key Intellectual Positions

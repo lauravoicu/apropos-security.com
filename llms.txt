@@ -28,7 +28,7 @@ Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification 
 - **QUORUM** — Agentic AI for cyber loss estimation. 5 LLM agents produce FAIR loss distributions via structured deliberation
 - **Substrata** — Empirical cyber risk data corpus. Curated public data spanning enforcement actions, litigation, settlements, insurance, threat frequency, control effectiveness, human factors, maturity benchmarks, containment timelines, and patch cadence. Provides the calibration and evidence layer for risk quantification tools
 
-## Publications (complete, 19 total)
+## Publications (complete, 20 total)
 
 ### Industry — AI Security & Standards
 - "AI Controls Matrix" (Cloud Security Alliance, Jul 2025)
@@ -36,6 +36,7 @@ Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification 
 - "Securing LLM Backed Systems: Essential Authorization Practices" (Cloud Security Alliance, Aug 2024)
 
 ### Industry — Cyber Risk Quantification
+- "Measuring the Return on Cyber Risk Reduction" (FAIR Institute, 2026)
 - "Bringing Financial Discipline to Cyber-Risk Decisions — A Practitioner's Field Guide" (FAIR Institute, Jun 2025)
 - "A FAIR Perspective on Generative AI Risks and Frameworks" (Elastic, Sep 2024)
 - "Case Study: How FAIR Risk Quantification Enables Information Security Decisions at Swisscom" (ISACA, Aug 2020)
@@ -63,10 +64,13 @@ Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification 
 - Medium/Apropos Security: series on decision science for cybersecurity (12+ articles)
 
 ## Speaking
-- FAIRCON 2019: Swisscom's FAIR introduction
-- FAIRCON 2025: Survival analysis + FAIR-CAM
-- FAIR European Summit 2023: panelist
-- FAIR European Summit 2025: panelist
+- Zero-Day Conference 2026: "Don't Trust the Model: Authorization for LLM-Powered Systems"
+- FAIRCON 2025: "The $ Value of Faster Vulnerability Remediation"
+- FAIR European Summit 2025: "The Business ROI of Risk Management" — panelist
+- FAIR European Summit 2023: "Moving from a Compliance-Based to a Risk-Based Approach to Cybersecurity" — London, panelist
+- Genev'Hack 2023: "Securing the Elastic Way: an InfoSec Perspective"
+- Zero Day Conference 2022: "CISO Round Table: Risk Management" — panelist
+- FAIRCON 2019: "How Quantification Enables Better Decision Making" — Swisscom use case
 
 ## Key Positions
 - Uncertainty is the feature, not the bug — false precision is more dangerous than honest uncertainty
