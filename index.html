@@ -21,7 +21,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary">
-    <meta name="ai-summary" content="Laura Voicu is a cyber risk quantification expert (PhD CS, CISSP) specializing in FAIR methodology, Bayesian inference, and AI security. Author of 20 publications including CSA AI Controls Matrix. Co-founder of ERQI. Builds open-source tools: FAIR Simulator, FAIR-CAM Agent-Based Model, QUORUM, LLM Validation Framework.">
+    <meta name="ai-summary" content="Laura Voicu builds the measurement layer for high-stakes decisions — whether made by humans, models, or AI agents. PhD CS, CISSP. Specializes in cyber risk quantification (FAIR, Bayesian, Monte Carlo), AI/LLM validation (5-dimension psychometric framework), and model risk validation. 20 publications including CSA AI Controls Matrix. Co-founder of ERQI.">
 
     <script type="application/ld+json">
     {
@@ -62,6 +62,11 @@
         {
           "@type": "Role",
           "roleName": "Standards Committee & DACH Co-Chair",
+          "memberOf": {"@type": "Organization", "name": "FAIR Institute"}
+        },
+        {
+          "@type": "Role",
+          "roleName": "Former Swiss Chapter Co-Chair",
           "memberOf": {"@type": "Organization", "name": "FAIR Institute"}
         },
         {
@@ -222,6 +227,14 @@
         </div>
 
         <div class="space-y-0">
+            <a href="https://medium.com/apropos-security/what-question-are-we-actually-answering-2b66a5bcf330" class="group border-b border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4 no-underline text-inherit">
+                <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">Measurement</div>
+                <div class="md:col-span-8">
+                    <h3 class="text-xl md:text-2xl font-headline group-hover:italic transition-all duration-300">What Question Are We Actually Answering?</h3>
+                    <p class="font-body text-on-surface-variant mt-2 text-sm">Before trusting any output &mdash; from a model, a tool, or a team &mdash; ask what question the evidence actually answers, and whether that question is the one you need answered.</p>
+                </div>
+            </a>
+
             <a href="https://medium.com/apropos-security/between-black-swans-and-bell-curves-b2d2952ab298" class="group border-b border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4 no-underline text-inherit">
                 <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">Risk Epistemology</div>
                 <div class="md:col-span-8">
@@ -262,13 +275,6 @@
                 </div>
             </a>
 
-            <a href="https://medium.com/@laura.voicu/measuring-the-immeasurable-quantifying-the-value-of-data-c7d5eb4612d4" class="group py-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:bg-surface-high/50 transition-colors px-4 -mx-4 no-underline text-inherit">
-                <div class="md:col-span-2 font-label text-xs text-secondary tracking-widest">Decision Analysis</div>
-                <div class="md:col-span-8">
-                    <h3 class="text-xl md:text-2xl font-headline group-hover:italic transition-all duration-300">Measuring the Immeasurable: Quantifying the Value of Data</h3>
-                    <p class="font-body text-on-surface-variant mt-2 text-sm">Our best-case scenario is nothing happens. And measuring nothing is hard.</p>
-                </div>
-            </a>
         </div>
     </div>
 </section>
@@ -480,9 +486,9 @@
             <div class="bg-surface p-10 flex flex-col justify-between min-h-[280px]">
                 <div>
                     <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python &middot; Coming soon</span>
-                    <h3 class="text-2xl font-headline leading-tight">LLM Agent &amp; Validation Framework</h3>
+                    <h3 class="text-2xl font-headline leading-tight">LLM Validation Framework</h3>
                 </div>
-                <p class="mt-auto text-sm font-body text-on-surface-variant">AI agents for automated security analysis and control mapping to risk taxonomies. Validation framework for LLM outputs using multi-model consensus, structured evaluation, and confidence scoring to ensure accuracy and reliability.</p>
+                <p class="mt-auto text-sm font-body text-on-surface-variant">Five-dimension psychometric validation for any LLM that produces structured classifications. Tests agreement (chance-corrected kappa), structural consistency, convergent validity, adversarial discrimination (minimal pairs), and stability/sensitivity. Taxonomy-agnostic.</p>
             </div>
         </div>
     </div>
@@ -564,19 +570,23 @@
             <div class="md:col-span-7">
                 <div class="space-y-6 text-lg font-body font-light leading-relaxed text-on-surface-variant">
                     <p>
-                        Most organizations treat security controls as binary, as implemented or not. My research explores what happens
-                        when you treat them as dynamic systems: controls that degrade, interact, and fail in ways that standard risk
-                        models can't capture.
+                        I build the measurement layer for high-stakes decisions, whether the decision is made by a human,
+                        a model, or an AI agent.
                     </p>
                     <p>
-                        I'm building the computational and empirical foundations for next-generation cyber risk quantification and
-                        agent-based models calibrated against real loss data. Control effectiveness frameworks
-                        taken from taxonomy to working simulation. Survival analysis applied to vulnerability lifecycles.
-                        LLM agents grounded in structured decomposition.
+                        Agent-based models that simulate how controls actually behave over time &mdash;
+                        degradation, interaction, cascade failure &mdash; calibrated against empirical loss data. Control effectiveness
+                        frameworks taken from taxonomy to working simulation. Survival analysis applied to vulnerability lifecycles.
                     </p>
                     <p>
-                        This isn't standard CRQ consulting. I am interested in the work that comes after an organization has
-                        decided to be genuinely data-driven about security and discovered that the hard part
+                        Validation frameworks for LLM-generated decisions, grounded in psychometrics and
+                        measurement theory. Model risk validation tooling for cyber risk quantification under emerging
+                        regulatory requirements. The question should always be whether
+                        the output is correct enough to act on, and how you would know if it is.
+                    </p>
+                    <p>
+                        I am interested in the work that comes after an organization has
+                        decided to be genuinely data-driven about security or AI and discovered that the hard part
                         is building the quantitative infrastructure to support it.
                     </p>
                 </div>
@@ -585,9 +595,9 @@
                 <div class="bg-surface p-10">
                     <span class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary block mb-8">I'm interested in</span>
                     <div class="space-y-6 text-base font-body text-on-surface leading-relaxed">
-                        <p>Organizations ready to go beyond standard CRQ with the data maturity and ambition to build something genuinely quantitative.</p>
-                        <p>Senior or advisory roles where I can build advanced risk quantification capability inside a company that wants to lead, not follow.</p>
-                        <p>Research collaboration on control effectiveness, loss modeling, or the intersection of simulation and security.</p>
+                        <p>Organizations building quantitative security or AI governance capability &mdash; whether that means risk quantification, model validation, or LLM evaluation.</p>
+                        <p>Senior or advisory roles where I can build measurement infrastructure for security and AI decisions inside a company that wants to lead, not follow.</p>
+                        <p>Research collaboration on control effectiveness, loss modeling, AI validation, or the intersection of simulation and security.</p>
                     </div>
                     <div class="mt-10 pt-6 border-t border-outline-variant/20">
                         <p class="text-sm font-body text-on-surface-variant mb-4">If that sounds like your organization or your work:</p>
@@ -629,7 +639,7 @@
                     <span class="font-label text-[10px] uppercase tracking-[0.3em] block mb-4 text-secondary">Affiliations</span>
                     <div class="space-y-2 font-headline italic text-xl text-white/90">
                         <p>ERQI &mdash; Co-Founder &amp; CDSO</p>
-                        <p>FAIR Institute &mdash; Standards Committee &amp; DACH Co-Chair</p>
+                        <p>FAIR Institute &mdash; Standards Committee &amp; DACH Co-Chair  &amp; Former Co-Chair</p>
                         <p>Cloud Security Alliance &mdash; Lead Author &amp; WG Co-Chair</p>
                         <p>Global Council for Responsible AI &mdash; Global Ambassador</p>
                         <p>Startup Advisory &mdash; Product Development &amp; Data/AI Strategy</p>
@@ -642,7 +652,7 @@
             </div>
             <div class="mt-16 pt-10 border-t border-white/10">
                 <span class="font-label text-[10px] uppercase tracking-[0.3em] block mb-6 text-secondary">Connect</span>
-                <p class="font-body text-white/60 text-sm mb-6">Open to advisory, senior roles, research collaboration, or speaking engagements. If you're building something ambitious in quantitative security or AI risk, I'd like to hear about it.</p>
+                <p class="font-body text-white/60 text-sm mb-6">Open to advisory, senior roles, research collaboration, or speaking engagements. If you're building something ambitious in quantitative security, AI governance, or measurement infrastructure for high-stakes decisions, I'd like to hear about it.</p>
                 <div class="flex gap-10">
                     <a class="font-label text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors" href="https://linkedin.com/in/voiculaura">LinkedIn &rarr;</a>
                     <a class="font-label text-sm uppercase tracking-widest text-white/70 hover:text-white transition-colors" href="https://github.com/security-decision-science">GitHub</a>

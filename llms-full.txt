@@ -4,13 +4,13 @@
 
 ## About Laura Voicu
 
-Laura Cristiana Voicu is an expert in data science, AI, cybersecurity, and their intersections, based in Basel, Switzerland. She specializes in cyber risk quantification, AI/LLM security, and applied statistical modeling — making complex security and AI systems measurable and defensible.
+Laura Cristiana Voicu is an expert in data science, AI, cybersecurity, and their intersections, based in Zürich, Switzerland. She specializes in cyber risk quantification, AI/LLM security, and applied statistical modeling — making complex security and AI systems measurable and defensible.
 
 **Education:** PhD in Computer Science (University of Basel, 2009), MSc Physics (Germany), CAS Applied Data Science & ML (EPFL), CISSP, DevSecOps Professional.
 
 **Career trajectory:** Research scientist at Penn State and ETH Zurich (distributed systems, 2003-2005), PhD at University of Basel (2006-2009), Data Architect at Credit Suisse (2010-2013), Senior Enterprise Architect (Data, AI & Automation) at Swisscom (2013-2018), Senior Security Architect & Cyber Risk Officer at Swisscom (2018-2020), Principal Security Data Scientist & Security Assurance Manager at Elastic (2021-2025).
 
-**Current roles:** Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification Institute (ERQI). FAIR Institute Standards Committee member, DACH Chapter Co-Chair, Denny Wan FAIR Ambassador Europe Award winner (2025). CSA lead research author and working group co-chair for "Securing LLM Backed Systems" and core author of the AI Controls Matrix (243 control objectives). Global Ambassador for the Global Council for Responsible AI. Startup advisor for product development, data strategy, and AI architecture.
+**Current roles:** Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification Institute (ERQI). FAIR Institute Standards Committee member, DACH Chapter Co-Chair, former Swiss Chapter Co-Chair, FAIR Ambassador Europe Award winner (2025). CSA lead research author and working group co-chair for "Securing LLM Backed Systems" and core author of the AI Controls Matrix (243 control objectives). Global Ambassador for the Global Council for Responsible AI. Startup advisor for product development, data strategy, and AI architecture.
 
 ## Expertise (Detailed)
 
@@ -39,14 +39,14 @@ Applies safety science frameworks (Rasmussen's risk management framework, Dekker
 ### FAIR Simulator
 Monte Carlo cyber risk quantification tool with IRIS 2025 industry benchmarks. Features scenario creation, sensitivity analysis, and portfolio aggregation. Built with React 18/TypeScript/Vite frontend and Python FastAPI backend with NumPy/SciPy for computation. Licensed CC BY-NC-SA 4.0.
 
-### FAIR-CAM Agent-Based Model (Stoikeia)
+### FAIR-CAM Agent-Based Model
 Agent-based cybersecurity risk simulator that operationalizes the full FAIR-CAM taxonomy. Five agent types: threat actors, security personnel, and three control types (Detection/Surveillance Controls, Vulnerability Management Controls, Loss Event Controls). Features network topology modeling, loss distributions, and narrative tracing. Built with Python/Mesa + React/Vite/Tailwind, FastAPI, WebSocket. Coming soon.
 
 ### QUORUM
 Agentic AI system for cyber loss estimation. Five LLM agents with distinct personas deliberate over four structured rounds to produce per-component FAIR loss distributions using SLEF (Structured Loss Estimation Framework) decomposition. Built with Python/FastAPI + Next.js/React/Tailwind/D3. Coming soon.
 
-### FAIR-CAM Mapper
-AI-automated control framework mapping tool that maps any control framework to FAIR-CAM taxonomies via Claude API. Supports batch, realtime, and manual modes. Validated with 291 tests across 5 independent modules: coherence, consistency, convergent validity, adversarial edge cases, and stability/sensitivity.
+### LLM Validation Framework
+Five-dimension psychometric validation framework for any LLM that produces structured classifications. Tests: (1) inter-rater agreement via chance-corrected kappa, (2) structural consistency against taxonomy rules, (3) convergent validity against independent crosswalks, (4) adversarial discrimination using minimal pairs, (5) stability under paraphrase and sensitivity to meaningful changes. Taxonomy-agnostic, zero external dependencies, 95 tests. Demonstrated against real AICM-to-FAIR-CAM control mappings (20 AICM v1.0.2 controls). Grounded in established psychometric methodology (Campbell & Fiske 1959, Cohen 1960).
 
 ### Survival Analysis for Vulnerability Management
 Kaplan-Meier survival analysis applied to time-to-patch metrics using Qualys VMDR data in Elastic. Published as Elastic Security Labs blog post (October 2025). Demonstrated stratified analysis by organizational group to identify remediation performance outliers.
@@ -118,15 +118,16 @@ Ongoing series on Medium/Apropos Security covering decision science for cybersec
 
 ## Affiliations
 - Enterprise Risk Quantification Institute (ERQI) — Co-Founder & Chief Data Science Officer
-- FAIR Institute — Standards Committee Member, DACH Chapter Co-Chair
+- FAIR Institute — Standards Committee Member, DACH Chapter Co-Chair, former Swiss Chapter Co-Chair
 - Cloud Security Alliance — Lead Research Author, Working Group Co-Chair (Securing LLM Backed Systems)
 - Global Council for Responsible AI — Global Ambassador
+- Startup Advisory — Product Development & Data/AI Strategy
 
 ## Recognition
-- Denny Wan FAIR Ambassador Europe Award, 2025
+- FAIR Ambassador Europe Award, 2025
 
 ## Current Direction
-Building the computational and empirical foundations for next-generation cyber risk quantification — agent-based models calibrated against real loss data, FAIR-CAM taken from framework to working simulation, and structured LLM deliberation for loss estimation. Open to senior advisory roles, embedded positions at organizations with ambition and data maturity to go beyond standard CRQ, and research collaboration on control effectiveness or loss modeling.
+Building the measurement layer for high-stakes decisions — whether the decision is made by a human, a model, or an AI agent. On the risk side: agent-based models calibrated against empirical loss data, FAIR-CAM taken from framework to working simulation, and structured LLM deliberation for loss estimation. On the AI side: validation frameworks for LLM-generated decisions grounded in psychometrics and measurement theory, and model risk validation tooling for cyber risk quantification under emerging regulatory requirements. Open to senior advisory roles, embedded positions at organizations building quantitative security or AI governance capability, and research collaboration on control effectiveness, loss modeling, or AI validation.
 
 ## Links
 - Website: https://apropos-security.com
