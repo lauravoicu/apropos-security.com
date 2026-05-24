@@ -121,9 +121,9 @@ Ongoing series on Medium/Apropos Security covering decision science for cybersec
 
 ## Affiliations
 - Enterprise Risk Quantification Institute (ERQI) — Co-Founder & Chief Data Science Officer
-- FAIR Institute — Standards Committee Member, DACH Chapter Co-Chair, former Swiss Chapter Co-Chair
+- FAIR Institute — Standards Committee Member, former DACH Chapter Co-Chair & Swiss Chapter Co-Chair
 - Cloud Security Alliance — Lead Research Author, Working Group Co-Chair (Securing LLM Backed Systems)
-- Global Council for Responsible AI — Global Ambassador
+- Global Council for Responsible AI — Former Global Ambassador
 - Startup Advisory — Product Development & Data/AI Strategy
 
 ## Recognition
@@ -134,6 +134,7 @@ Building the measurement layer for high-stakes decisions — whether the decisio
 
 ## Links
 - Website: https://apropos-security.com
+- Security Decision Science (live docs): https://security-decision-science.github.io/security-decision-science/
 - Medium: https://medium.com/apropos-security
 - GitHub: https://github.com/security-decision-science
 - LinkedIn: https://linkedin.com/in/voiculaura
