@@ -10,7 +10,7 @@ Laura Cristiana Voicu is an expert in data science, AI, cybersecurity, and their
 
 **Career trajectory:** Research scientist at Penn State and ETH Zurich (distributed systems, 2003-2005), PhD at University of Basel (2006-2009), Data Architect at Credit Suisse (2010-2013), Senior Enterprise Architect (Data, AI & Automation) at Swisscom (2013-2018), Senior Security Architect & Cyber Risk Officer at Swisscom (2018-2020), Principal Security Data Scientist & Security Assurance Manager at Elastic (2021-2025).
 
-**Current roles:** Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification Institute (ERQI). FAIR Institute Standards Committee member, DACH Chapter Co-Chair, former Swiss Chapter Co-Chair, FAIR Ambassador Europe Award winner (2025). CSA lead research author and working group co-chair for "Securing LLM Backed Systems" and core author of the AI Controls Matrix (243 control objectives). Global Ambassador for the Global Council for Responsible AI. Startup advisor for product development, data strategy, and AI architecture.
+**Current roles:** Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification Institute (ERQI). FAIR Institute Standards Committee member, former DACH Chapter Co-Chair and Swiss Chapter Co-Chair, FAIR Ambassador Europe Award winner (2025). CSA lead research author and working group co-chair for "Securing LLM Backed Systems" and core author of the AI Controls Matrix (243 control objectives). Former Global Ambassador for the Global Council for Responsible AI. Startup advisor for product development, data strategy, and AI architecture.
 
 ## Expertise (Detailed)
 
@@ -35,6 +35,9 @@ Developer of methods for measuring cybersecurity control effectiveness using the
 Applies safety science frameworks (Rasmussen's risk management framework, Dekker's drift into failure, Cook's How Complex Systems Fail) to understand why cybersecurity controls degrade over time and how organizations can build resilient security architectures.
 
 ## Open Source Tools (Detailed)
+
+### Security Decision Science
+19 interactive Jupyter notebooks across 4 parts: statistical foundations, decision frameworks, behavioral traps, and causal & strategic reasoning — all applied to security decisions. Companion `decision-security` Python library on PyPI. Live docs: https://security-decision-science.github.io/security-decision-science/
 
 ### FAIR Simulator
 Monte Carlo cyber risk quantification tool with IRIS 2025 industry benchmarks. Features scenario creation, sensitivity analysis, and portfolio aggregation. Built with React 18/TypeScript/Vite frontend and Python FastAPI backend with NumPy/SciPy for computation. Licensed CC BY-NC-SA 4.0.
