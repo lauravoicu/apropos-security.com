@@ -43,7 +43,7 @@ Applies safety science frameworks (Rasmussen's risk management framework, Dekker
 Monte Carlo cyber risk quantification tool with IRIS 2025 industry benchmarks. Features scenario creation, sensitivity analysis, and portfolio aggregation. Built with React 18/TypeScript/Vite frontend and Python FastAPI backend with NumPy/SciPy for computation. Licensed CC BY-NC-SA 4.0.
 
 ### FAIR-CAM Agent-Based Model
-Agent-based cybersecurity risk simulator that operationalizes the full FAIR-CAM taxonomy. Five agent types: threat actors, security personnel, and three control types (Detection/Surveillance Controls, Vulnerability Management Controls, Loss Event Controls). Features network topology modeling, loss distributions, and narrative tracing. Built with Python/Mesa + React/Vite/Tailwind, FastAPI, WebSocket. Coming soon.
+Open-source agent-based cybersecurity risk simulator that operationalizes the full FAIR-CAM taxonomy. Five agent types: threat actors, security personnel, and three control types (Detection/Surveillance Controls, Vulnerability Management Controls, Loss Event Controls). Features network topology modeling, loss distributions, and narrative tracing. Built with Python/Mesa + React/Vite/Tailwind, FastAPI, WebSocket. Licensed CC BY-NC-SA 4.0.
 
 ### QUORUM
 Agentic AI system for cyber loss estimation. Five LLM agents with distinct personas deliberate over four structured rounds to produce per-component FAIR loss distributions using SLEF (Structured Loss Estimation Framework) decomposition. Built with Python/FastAPI + Next.js/React/Tailwind/D3. Coming soon.
@@ -57,7 +57,7 @@ Kaplan-Meier survival analysis applied to time-to-patch metrics using Qualys VMD
 ### Substrata
 Empirical cyber risk data corpus — curated public data spanning enforcement actions, litigation outcomes, settlements, insurance, threat frequency, control effectiveness, human factors, maturity benchmarks, containment timelines, patch cadence, and financial impacts. Two-tier pipeline: normalize then enrich. Provides the calibration and evidence layer underpinning risk quantification, loss estimation, threat frequency, and control effectiveness models.
 
-## Publications (Complete, 20 Total)
+## Publications (Complete, 21 Total)
 
 ### Industry — AI Security & Standards
 1. "AI Controls Matrix" — Cloud Security Alliance, July 2025. Core author. 243 control objectives for AI systems governance, risk, and compliance.
@@ -78,6 +78,9 @@ Empirical cyber risk data corpus — curated public data spanning enforcement ac
 
 ### Book Chapter
 11. "Das datenzentrische Unternehmen — Daten als Erfolgsgrundlage im KI-Zeitalter" — De Gruyter, June 2025. German-language book chapter on data-centric enterprise architecture in the AI era.
+
+### Academic — Security Decision Science
+20. "Control Physiology: An Agent-Based Model of FAIR-CAM Dynamics" — SSRN, May 2026. Submitted to Computers & Security (Elsevier). First open-source computational implementation of FAIR-CAM. Agent-based model simulating how controls degrade, interact, and cascade over time, calibrated against empirical loss data. Reveals three measurable dynamics: causation engine, queueing regime shift, and monitoring cascades. N=1000 Monte Carlo runs, 264-hour dwell time. Co-authored with Jack Jones.
 
 ### Academic — Distributed Data Management (2006-2010)
 12. "Flexible Data Access in a Cloud based on Freshness Requirements" — IEEE, June 2010
