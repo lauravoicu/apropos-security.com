@@ -80,7 +80,7 @@ Empirical cyber risk data corpus — curated public data spanning enforcement ac
 11. "Das datenzentrische Unternehmen — Daten als Erfolgsgrundlage im KI-Zeitalter" — De Gruyter, June 2025. German-language book chapter on data-centric enterprise architecture in the AI era.
 
 ### Academic — Security Decision Science
-20. "Control Physiology: An Agent-Based Model of FAIR-CAM Dynamics" — SSRN, May 2026. Submitted to Computers & Security (Elsevier). First open-source computational implementation of FAIR-CAM. Agent-based model simulating how controls degrade, interact, and cascade over time, calibrated against empirical loss data. Reveals three measurable dynamics: causation engine, queueing regime shift, and monitoring cascades. N=1000 Monte Carlo runs, 264-hour dwell time. Co-authored with Jack Jones.
+20. "Control Physiology: An Agent-Based Model of FAIR-CAM Dynamics" — SSRN (https://ssrn.com/abstract=6818420) and arXiv (https://arxiv.org/abs/2605.26597), May 2026. Submitted to Computers & Security (Elsevier). First open-source computational implementation of FAIR-CAM. Agent-based model simulating how controls degrade, interact, and cascade over time, calibrated against empirical loss data. Reveals three measurable dynamics: causation engine, queueing regime shift, and monitoring cascades. N=1000 Monte Carlo runs, 264-hour dwell time. Co-authored with Jack Jones.
 
 ### Academic — Distributed Data Management (2006-2010)
 12. "Flexible Data Access in a Cloud based on Freshness Requirements" — IEEE, June 2010

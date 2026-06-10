@@ -37,7 +37,7 @@ Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification 
 - "Securing LLM Backed Systems: Essential Authorization Practices" (Cloud Security Alliance, Aug 2024)
 
 ### Academic — Security Decision Science
-- "Control Physiology: An Agent-Based Model of FAIR-CAM Dynamics" (SSRN / Computers & Security, 2026)
+- "Control Physiology: An Agent-Based Model of FAIR-CAM Dynamics" (SSRN / Computers & Security, 2026) — https://ssrn.com/abstract=6818420 / https://arxiv.org/abs/2605.26597
 
 ### Industry — Cyber Risk Quantification
 - "Measuring the Return on Cyber Risk Reduction" (FAIR Institute, 2026)
