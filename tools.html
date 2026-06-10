@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools & Research — Laura Voicu | Open Source Security Analytics</title>
+    <meta name="description" content="Open-source tools by Laura Voicu for cyber risk quantification: Security Decision Science notebooks, FAIR Simulator, FAIR-CAM Agent-Based Model, QUORUM LLM deliberation, Assay LLM validation, and Substrata empirical data.">
+    <meta name="author" content="Laura Cristiana Voicu">
+    <meta property="og:title" content="Tools & Research — Laura Voicu">
+    <meta property="og:description" content="Open-source tools for cyber risk quantification: notebooks, simulators, agent-based models, LLM validation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apropos-security.com/tools.html">
+    <meta property="og:image" content="https://apropos-security.com/og-card.png">
+    <link rel="icon" type="image/png" href="logo-180.png">
+    <link rel="apple-touch-icon" href="logo-180.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tools & Research — Laura Voicu">
+    <meta name="twitter:description" content="Open-source tools for cyber risk quantification: notebooks, simulators, agent-based models, LLM validation.">
+    <link rel="canonical" href="https://apropos-security.com/tools.html">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00352c",
+                        "primary-container": "#024e41",
+                        "secondary": "#4da8a8",
+                        "secondary-warm": "#7a6e5d",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c19",
+                        "on-surface-variant": "#3f4848",
+                        "outline-variant": "#bfc8c8",
+                        "surface": "#fafaf7",
+                        "surface-low": "#f4f4ef",
+                        "surface-high": "#eaeae5",
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fafaf7;
+            color: #1a1c19;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .serif-italic { font-family: 'Newsreader', serif; }
+        #menu-toggle.open #bar1 { transform: rotate(45deg) translate(4px, 4px); }
+        #menu-toggle.open #bar2 { opacity: 0; }
+        #menu-toggle.open #bar3 { transform: rotate(-45deg) translate(4px, -4px); }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+
+<!-- Nav -->
+<nav class="fixed w-full top-0 z-50 bg-surface/90 backdrop-blur-xl">
+    <div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.png" alt="Apropos Security" class="h-8 w-8 rounded-full">
+            <span class="font-headline font-bold text-xl tracking-tighter text-primary uppercase">Apropos Security</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-10 font-headline italic text-lg tracking-tight">
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Writing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="publications.html">Publications</a>
+            <a class="text-secondary border-b border-secondary/30" href="tools.html">Tools</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="speaking.html">Speaking</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar1"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar2"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar3"></span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 px-8 py-6 space-y-4 font-headline italic text-lg tracking-tight">
+        <a class="block text-on-surface-variant" href="index.html" onclick="closeMobileMenu()">Writing</a>
+        <a class="block text-on-surface-variant" href="publications.html" onclick="closeMobileMenu()">Publications</a>
+        <a class="block text-secondary" href="tools.html" onclick="closeMobileMenu()">Tools</a>
+        <a class="block text-on-surface-variant" href="speaking.html" onclick="closeMobileMenu()">Speaking</a>
+        <a class="block text-on-surface-variant" href="about.html" onclick="closeMobileMenu()">About</a>
+    </div>
+</nav>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    menuToggle.addEventListener('click', function() {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+    });
+</script>
+
+<main>
+
+<!-- Tools -->
+<section class="pt-40 pb-24 bg-surface-low" id="tools">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="mb-20">
+            <h1 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">Tools &amp; Research</h1>
+            <div class="w-24 h-px bg-secondary"></div>
+            <p class="mt-6 text-lg text-on-surface-variant font-body font-light max-w-2xl">Open-source tools for cyber risk quantification. Built to support real decisions.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/10">
+            <a href="https://security-decision-science.github.io/security-decision-science/" class="group bg-white p-10 flex flex-col justify-between min-h-[300px] hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python &middot; 19 Notebooks &middot; MIT</span>
+                    <h3 class="text-2xl font-headline leading-tight group-hover:italic transition-all">Security Decision Science</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Interactive curriculum: Monte Carlo, Bayesian updating, survival analysis, causal inference, game theory, and behavioral traps — applied to security decisions. Companion <code class="text-xs">decision-security</code> library on PyPI.</p>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">Live docs &middot; GitHub &rarr;</p>
+            </a>
+            <a href="https://github.com/security-decision-science/security-decision-labs/tree/main/tools/fair-simulator" class="group bg-surface p-10 flex flex-col justify-between min-h-[300px] hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">React + Python &middot; CC BY-NC-SA 4.0</span>
+                    <h3 class="text-2xl font-headline leading-tight group-hover:italic transition-all">FAIR Simulator</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Monte Carlo risk quantification with IRIS 2025 benchmarks. Scenario creation, sensitivity analysis, portfolio aggregation.</p>
+                </div>
+            </a>
+            <a href="https://github.com/security-decision-science/security-decision-labs/tree/main/tools/control-systems-agent-based-model" class="group bg-white p-10 flex flex-col justify-between min-h-[300px] hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python + Mesa + React &middot; CC BY-NC-SA 4.0</span>
+                    <h3 class="text-2xl font-headline leading-tight group-hover:italic transition-all">FAIR-CAM Agent-Based Model</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Simulates how controls actually behave over time. Degradation, interaction, and cascade failure. Calibrated against empirical loss data.</p>
+                </div>
+            </a>
+            <div class="bg-surface p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python + Next.js &middot; Coming soon</span>
+                    <h3 class="text-2xl font-headline leading-tight">Quorum</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Structured LLM deliberation for loss estimation. 5 specialist agents produce calibrated FAIR loss distributions, grounded in empirical benchmarks.</p>
+                </div>
+            </div>
+            <div class="bg-white p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python &middot; Coming soon</span>
+                    <h3 class="text-2xl font-headline leading-tight">Assay &mdash; LLM Validation Framework</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Five-dimension psychometric validation for any LLM that produces structured classifications. Tests agreement, consistency, convergent validity, adversarial discrimination, and stability. Taxonomy-agnostic.</p>
+                </div>
+            </div>
+            <a href="https://github.com/lauravoicu/elastic-vm-survivalanalysis" class="group bg-surface p-10 flex flex-col justify-between min-h-[300px] hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python + Elasticsearch &middot; Elastic Security Labs</span>
+                    <h3 class="text-2xl font-headline leading-tight group-hover:italic transition-all">Survival Analysis for Vulnerability Management</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Kaplan-Meier survival analysis applied to time-to-patch metrics using Qualys VMDR data.</p>
+                </div>
+            </a>
+            <div class="bg-white p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Empirical Data &middot; Coming soon</span>
+                    <h3 class="text-2xl font-headline leading-tight">Substrata</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Empirical cyber risk data corpus. Curated public data spanning enforcement actions, litigation, settlements, insurance, threat frequency, control effectiveness, and financial impacts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-low py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-screen-2xl mx-auto gap-6">
+        <div class="font-label text-[10px] uppercase tracking-[0.2em] font-medium text-primary opacity-60">
+            &copy; 2026 Laura Voicu &middot; Apropos Security
+        </div>
+        <div class="flex gap-10 font-label text-[10px] uppercase tracking-[0.2em] font-medium text-on-surface-variant/60">
+            <a class="hover:text-secondary transition-all" href="index.html">Writing</a>
+            <a class="hover:text-secondary transition-all" href="publications.html">Publications</a>
+            <a class="hover:text-secondary transition-all" href="speaking.html">Speaking</a>
+            <a class="hover:text-secondary transition-all" href="about.html">About</a>
+            <a class="hover:text-secondary transition-all" href="https://linkedin.com/in/voiculaura">LinkedIn</a>
+            <a class="hover:text-secondary transition-all" href="https://github.com/security-decision-science">GitHub</a>
+            <a class="hover:text-secondary transition-all" href="https://medium.com/apropos-security">Medium</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

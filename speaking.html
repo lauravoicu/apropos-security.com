@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaking — Laura Voicu | Cyber Risk Quantification, AI Security</title>
+    <meta name="description" content="Conference talks and panels by Laura Voicu on cyber risk quantification, LLM authorization, FAIR methodology, and security decision science. FAIRCON, Zero-Day Conference, FAIR European Summit, Nyenrode.">
+    <meta name="author" content="Laura Cristiana Voicu">
+    <meta property="og:title" content="Speaking — Laura Voicu">
+    <meta property="og:description" content="Conference talks and panels on cyber risk quantification, LLM authorization, FAIR methodology, and security decision science.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apropos-security.com/speaking.html">
+    <meta property="og:image" content="https://apropos-security.com/og-card.png">
+    <link rel="icon" type="image/png" href="logo-180.png">
+    <link rel="apple-touch-icon" href="logo-180.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Speaking — Laura Voicu">
+    <meta name="twitter:description" content="Conference talks and panels on cyber risk quantification, LLM authorization, FAIR methodology, and security decision science.">
+    <link rel="canonical" href="https://apropos-security.com/speaking.html">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00352c",
+                        "primary-container": "#024e41",
+                        "secondary": "#4da8a8",
+                        "secondary-warm": "#7a6e5d",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c19",
+                        "on-surface-variant": "#3f4848",
+                        "outline-variant": "#bfc8c8",
+                        "surface": "#fafaf7",
+                        "surface-low": "#f4f4ef",
+                        "surface-high": "#eaeae5",
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fafaf7;
+            color: #1a1c19;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .serif-italic { font-family: 'Newsreader', serif; }
+        #menu-toggle.open #bar1 { transform: rotate(45deg) translate(4px, 4px); }
+        #menu-toggle.open #bar2 { opacity: 0; }
+        #menu-toggle.open #bar3 { transform: rotate(-45deg) translate(4px, -4px); }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+
+<!-- Nav -->
+<nav class="fixed w-full top-0 z-50 bg-surface/90 backdrop-blur-xl">
+    <div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.png" alt="Apropos Security" class="h-8 w-8 rounded-full">
+            <span class="font-headline font-bold text-xl tracking-tighter text-primary uppercase">Apropos Security</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-10 font-headline italic text-lg tracking-tight">
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Writing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="publications.html">Publications</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="tools.html">Tools</a>
+            <a class="text-secondary border-b border-secondary/30" href="speaking.html">Speaking</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar1"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar2"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar3"></span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 px-8 py-6 space-y-4 font-headline italic text-lg tracking-tight">
+        <a class="block text-on-surface-variant" href="index.html" onclick="closeMobileMenu()">Writing</a>
+        <a class="block text-on-surface-variant" href="publications.html" onclick="closeMobileMenu()">Publications</a>
+        <a class="block text-on-surface-variant" href="tools.html" onclick="closeMobileMenu()">Tools</a>
+        <a class="block text-secondary" href="speaking.html" onclick="closeMobileMenu()">Speaking</a>
+        <a class="block text-on-surface-variant" href="about.html" onclick="closeMobileMenu()">About</a>
+    </div>
+</nav>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    menuToggle.addEventListener('click', function() {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+    });
+</script>
+
+<main>
+
+<!-- Speaking -->
+<section class="pt-40 pb-24" id="speaking">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="mb-20">
+            <h1 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">Speaking</h1>
+            <div class="w-24 h-px bg-secondary"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/10">
+            <a href="https://www.zero-day.ch/events/authorization-llm-systems/" class="bg-white p-10 flex flex-col justify-between min-h-[300px] no-underline text-inherit hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2026</span>
+                    <h3 class="text-2xl font-headline leading-tight italic">Don't Trust the Model: Authorization for LLM-Powered Systems</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Why LLMs can't do authorization, and where to put the controls that can.</p>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">Zero-Day Conference</p>
+            </a>
+            <a href="https://www.fairinstitute.org/blog/faster-patching-worth-it-put-a-dollar-value-on-remediation-faircon25-video" class="bg-surface p-10 flex flex-col justify-between min-h-[300px] no-underline text-inherit hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2025</span>
+                    <h3 class="text-2xl font-headline leading-tight italic">The $ Value of Faster Vulnerability Remediation</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">How much risk reduction does faster patching buy you?</p>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">FAIRCON 2025</p>
+            </a>
+            <a href="https://www.eventleaf.com/e/2025-fair-institute-europe-summit" class="bg-white p-10 flex flex-col justify-between min-h-[300px] no-underline text-inherit hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2025</span>
+                    <h3 class="text-2xl font-headline leading-tight">The Business ROI of Risk Management</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Bringing financial discipline to cyber risk decisions.</p>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">FAIR European Summit 2025</p>
+            </a>
+            <a href="https://www.fairinstitute.org/blog/invitation-to-inaugural-fair-institute-europe-summit-in-london" class="bg-surface p-10 flex flex-col justify-between min-h-[300px] no-underline text-inherit hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2023</span>
+                    <h3 class="text-2xl font-headline leading-tight italic">Moving from a Compliance-Based to a Risk-Based Approach to Cybersecurity</h3>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">FAIR European Summit 2023 &middot; London &middot; Panelist</p>
+            </a>
+            <div class="bg-white p-10 flex flex-col justify-between min-h-[300px]">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2023</span>
+                    <h3 class="text-2xl font-headline leading-tight italic">Securing the Elastic Way: an InfoSec Perspective</h3>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">Genev'Hack 2023</p>
+            </div>
+            <a href="https://www.zero-day.ch/team-member/voicu-laura/" class="bg-surface p-10 flex flex-col justify-between min-h-[300px] no-underline text-inherit hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2022</span>
+                    <h3 class="text-2xl font-headline leading-tight italic">CISO Round Table: Risk Management</h3>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">Zero Day Conference 2022 &middot; Panelist</p>
+            </a>
+            <a href="https://www.fairinstitute.org/blog/faircon19-video-use-case-panorama-fair-practitioner-success-stories-from-bbt-swisscom-fidelity-investments-and-daimler-mobility" class="bg-white p-10 flex flex-col justify-between min-h-[300px] no-underline text-inherit hover:bg-surface transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">2019</span>
+                    <h3 class="text-2xl font-headline leading-tight">How Quantification Enables Better Decision Making</h3>
+                </div>
+                <p class="mt-auto text-xs font-label uppercase text-on-surface-variant tracking-widest">FAIRCON 2019 &middot; Use Case Panorama &middot; Panelist</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-low py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-screen-2xl mx-auto gap-6">
+        <div class="font-label text-[10px] uppercase tracking-[0.2em] font-medium text-primary opacity-60">
+            &copy; 2026 Laura Voicu &middot; Apropos Security
+        </div>
+        <div class="flex gap-10 font-label text-[10px] uppercase tracking-[0.2em] font-medium text-on-surface-variant/60">
+            <a class="hover:text-secondary transition-all" href="index.html">Writing</a>
+            <a class="hover:text-secondary transition-all" href="publications.html">Publications</a>
+            <a class="hover:text-secondary transition-all" href="tools.html">Tools</a>
+            <a class="hover:text-secondary transition-all" href="about.html">About</a>
+            <a class="hover:text-secondary transition-all" href="https://linkedin.com/in/voiculaura">LinkedIn</a>
+            <a class="hover:text-secondary transition-all" href="https://github.com/security-decision-science">GitHub</a>
+            <a class="hover:text-secondary transition-all" href="https://medium.com/apropos-security">Medium</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
