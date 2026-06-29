@@ -48,8 +48,11 @@ Open-source agent-based cybersecurity risk simulator that operationalizes the fu
 ### QUORUM
 Agentic AI system for cyber loss estimation. Five LLM agents with distinct personas deliberate over four structured rounds to produce per-component FAIR loss distributions using SLEF (Structured Loss Estimation Framework) decomposition. Built with Python/FastAPI + Next.js/React/Tailwind/D3. Coming soon.
 
-### LLM Validation Framework
+### LLM Classification Validator
 Five-dimension psychometric validation framework for any LLM that produces structured classifications. Tests: (1) inter-rater agreement via chance-corrected kappa, (2) structural consistency against taxonomy rules, (3) convergent validity against independent crosswalks, (4) adversarial discrimination using minimal pairs, (5) stability under paraphrase and sensitivity to meaningful changes. Taxonomy-agnostic, zero external dependencies, 95 tests. Demonstrated against real AICM-to-FAIR-CAM control mappings (20 AICM v1.0.2 controls). Grounded in established psychometric methodology (Campbell & Fiske 1959, Cohen 1960).
+
+### TEF Estimator
+Data-grounded Threat Event Frequency estimation with vector decomposition. Decomposes TEF into measurable attack vectors, calibrated against empirical threat data. Built with Python, available on PyPI (v1.1.3). Licensed CC BY-NC-SA 4.0. Co-authored with Jack Jones. https://github.com/security-decision-science/security-decision-labs/tree/main/tools/tef-estimator
 
 ### Survival Analysis for Vulnerability Management
 Kaplan-Meier survival analysis applied to time-to-patch metrics using Qualys VMDR data in Elastic. Published as Elastic Security Labs blog post (October 2025). Demonstrated stratified analysis by organizational group to identify remediation performance outliers.
@@ -57,7 +60,7 @@ Kaplan-Meier survival analysis applied to time-to-patch metrics using Qualys VMD
 ### Substrata
 Empirical cyber risk data corpus — curated public data spanning enforcement actions, litigation outcomes, settlements, insurance, threat frequency, control effectiveness, human factors, maturity benchmarks, containment timelines, patch cadence, and financial impacts. Two-tier pipeline: normalize then enrich. Provides the calibration and evidence layer underpinning risk quantification, loss estimation, threat frequency, and control effectiveness models.
 
-## Publications (Complete, 21 Total)
+## Publications (Complete, 22 Total)
 
 ### Industry — AI Security & Standards
 1. "AI Controls Matrix" — Cloud Security Alliance, July 2025. Core author. 243 control objectives for AI systems governance, risk, and compliance.
@@ -65,7 +68,8 @@ Empirical cyber risk data corpus — curated public data spanning enforcement ac
 3. "Securing LLM Backed Systems: Essential Authorization Practices" — Cloud Security Alliance, August 2024. Lead author. Framework for securing LLM-integrated applications with emphasis on authorization, data flow control, and prompt injection defense.
 
 ### Industry — Cyber Risk Quantification
-4. "Measuring the Return on Cyber Risk Reduction" — FAIR Institute, 2026. Quantifying the financial return of cybersecurity risk reduction investments.
+4. "Model Risk Testing & Analysis for Cyber Risk Quantification" — ERQI, 2026. Model risk validation framework for cyber risk quantification models.
+5. "Measuring the Return on Cyber Risk Reduction" — FAIR Institute, 2026. Quantifying the financial return of cybersecurity risk reduction investments.
 5. "Bringing Financial Discipline to Cyber-Risk Decisions — A Practitioner's Field Guide" — FAIR Institute, June 2025. Practical guide for implementing quantitative cyber risk programs.
 5. "A FAIR Perspective on Generative AI Risks and Frameworks" — Elastic, September 2024. Analysis of how FAIR methodology applies to emerging generative AI risks.
 6. "Case Study: How FAIR Risk Quantification Enables Information Security Decisions at Swisscom" — ISACA Journal, August 2020. Detailed case study of FAIR implementation at a major European telco.
@@ -96,6 +100,7 @@ Empirical cyber risk data corpus — curated public data spanning enforcement ac
 Ongoing series on Medium/Apropos Security covering decision science for cybersecurity. Topics include: risk epistemology (black swans vs. bell curves), Bayesian methods for security, statistical distributions for security decisions, power analysis in CRQ, Value of Information analysis, and AI decision agents.
 
 ## Speaking Engagements
+- Nyenrode Continuous GRC Summit 2026: "From AI Noise to Risk Intelligence: Why Your Cyber Risk Reports May Be Failing You" — keynote on moving from heatmaps to defensible risk quantification
 - Zero-Day Conference 2026: "Don't Trust the Model: Authorization for LLM-Powered Systems" — interactive session on authorization architecture for LLM-powered systems
 - FAIRCON 2025: "The $ Value of Faster Vulnerability Remediation" — survival analysis + FAIR-CAM applied to patching economics
 - FAIR European Summit 2025: "The Business ROI of Risk Management" — panelist
