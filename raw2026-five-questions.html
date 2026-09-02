@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Questions for Any Risk Model — Laura Voicu</title>
+    <meta name="description" content="Five plain-language questions to ask about any risk model output before you act on it. From the RAW 2026 talk 'Can you trust that number?' by Laura Voicu.">
+    <meta name="author" content="Laura Cristiana Voicu">
+    <meta property="og:title" content="Five Questions for Any Risk Model — Laura Voicu">
+    <meta property="og:description" content="Five plain-language questions to ask about any risk model output before you act on it.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apropos-security.com/raw2026-five-questions.html">
+    <meta property="og:image" content="https://apropos-security.com/og-card.png">
+    <link rel="icon" type="image/png" href="logo-180.png">
+    <link rel="apple-touch-icon" href="logo-180.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Five Questions for Any Risk Model">
+    <meta name="twitter:description" content="Five plain-language questions to ask about any risk model output before you act on it.">
+    <link rel="canonical" href="https://apropos-security.com/raw2026-five-questions.html">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00352c",
+                        "primary-container": "#024e41",
+                        "secondary": "#4da8a8",
+                        "secondary-warm": "#7a6e5d",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c19",
+                        "on-surface-variant": "#3f4848",
+                        "outline-variant": "#bfc8c8",
+                        "surface": "#fafaf7",
+                        "surface-low": "#f4f4ef",
+                        "surface-high": "#eaeae5",
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fafaf7;
+            color: #1a1c19;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .serif-italic { font-family: 'Newsreader', serif; }
+        #menu-toggle.open #bar1 { transform: rotate(45deg) translate(4px, 4px); }
+        #menu-toggle.open #bar2 { opacity: 0; }
+        #menu-toggle.open #bar3 { transform: rotate(-45deg) translate(4px, -4px); }
+
+        @media print {
+            nav, footer, .no-print { display: none !important; }
+            body { background: white; }
+            main { padding-top: 0 !important; }
+            section { padding-top: 2rem !important; }
+            .print-footer { display: block !important; }
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+
+<!-- Nav -->
+<nav class="fixed w-full top-0 z-50 bg-surface/90 backdrop-blur-xl">
+    <div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.png" alt="Apropos Security" class="h-8 w-8 rounded-full">
+            <span class="font-headline font-bold text-xl tracking-tighter text-primary uppercase">Apropos Security</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-10 font-headline italic text-lg tracking-tight">
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Writing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="publications.html">Publications</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="tools.html">Tools</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="speaking.html">Speaking</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar1"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar2"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar3"></span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 px-8 py-6 space-y-4 font-headline italic text-lg tracking-tight">
+        <a class="block text-on-surface-variant" href="index.html" onclick="closeMobileMenu()">Writing</a>
+        <a class="block text-on-surface-variant" href="publications.html" onclick="closeMobileMenu()">Publications</a>
+        <a class="block text-on-surface-variant" href="tools.html" onclick="closeMobileMenu()">Tools</a>
+        <a class="block text-on-surface-variant" href="speaking.html" onclick="closeMobileMenu()">Speaking</a>
+        <a class="block text-on-surface-variant" href="about.html" onclick="closeMobileMenu()">About</a>
+    </div>
+</nav>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    menuToggle.addEventListener('click', function() {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+    });
+</script>
+
+<main>
+
+<section class="pt-40 pb-24 px-8 max-w-screen-2xl mx-auto">
+    <div class="max-w-3xl">
+
+        <span class="font-label text-xs uppercase tracking-[0.3em] text-secondary mb-8 block">Risk Awareness Week 2026</span>
+
+        <h1 class="text-4xl md:text-5xl font-headline font-light tracking-tight leading-[1.1] text-primary mb-6">
+            Five questions for <span class="italic font-normal">any</span> risk model
+        </h1>
+
+        <p class="text-lg text-on-surface-variant font-body font-light leading-relaxed mb-10">
+            The next time someone shows you a number, a loss estimate, a frequency, a VaR, a risk score, ask these five questions before you act on it.
+        </p>
+
+        <div class="mb-16">
+            <a href="raw2026-five-questions.pdf" class="inline-flex items-center gap-3 bg-primary text-on-primary px-6 py-3 font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-colors no-underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+            </a>
+        </div>
+
+        <div class="space-y-0">
+
+            <div class="border-t border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-2">
+                    <span class="font-headline text-3xl text-secondary/40 italic">1</span>
+                </div>
+                <div class="md:col-span-10">
+                    <h2 class="text-xl font-headline mb-3">Where does the data come from, and when was it last updated?</h2>
+                    <p class="font-body text-on-surface-variant text-sm leading-relaxed">
+                        Every source has its own biases. Insurance claims data is censored. Breach databases depend on reporting thresholds. Vendor telemetry reflects their customer base, not yours. If you cannot trace each material input to a documented source, you do not know what the model is actually measuring.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-2">
+                    <span class="font-headline text-3xl text-secondary/40 italic">2</span>
+                </div>
+                <div class="md:col-span-10">
+                    <h2 class="text-xl font-headline mb-3">Which inputs matter most, and how well grounded are they?</h2>
+                    <p class="font-body text-on-surface-variant text-sm leading-relaxed">
+                        Most model outputs are driven by a handful of parameters. If the top driver is an expert estimate that has never been tested against data, that is where your model risk is concentrated. Sensitivity analysis tells you where to focus your validation effort.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-2">
+                    <span class="font-headline text-3xl text-secondary/40 italic">3</span>
+                </div>
+                <div class="md:col-span-10">
+                    <h2 class="text-xl font-headline mb-3">What is the uncertainty band, and has anyone reported it?</h2>
+                    <p class="font-body text-on-surface-variant text-sm leading-relaxed">
+                        When the plausible range spans two orders of magnitude, presenting a point estimate without qualification creates a false sense of certainty. The primary output of model validation should be an uncertainty band, never a single point estimate.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-outline-variant/20 py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-2">
+                    <span class="font-headline text-3xl text-secondary/40 italic">4</span>
+                </div>
+                <div class="md:col-span-10">
+                    <h2 class="text-xl font-headline mb-3">What does the model leave out, and does it matter for this decision?</h2>
+                    <p class="font-body text-on-surface-variant text-sm leading-relaxed">
+                        Every model simplifies reality. Common omissions include dependence between events, accumulation risk, and second-order effects. Each omission biases the output in a direction, optimistic or pessimistic. Know which direction, and whether it changes the decision.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-outline-variant/20 border-b py-10 grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-2">
+                    <span class="font-headline text-3xl text-secondary/40 italic">5</span>
+                </div>
+                <div class="md:col-span-10">
+                    <h2 class="text-xl font-headline mb-3">Is this model designed for the decision you are making?</h2>
+                    <p class="font-body text-on-surface-variant text-sm leading-relaxed">
+                        A model sizing a $200 million insurance program needs full uncertainty quantification. A model for internal prioritization needs documented assumptions and periodic self-assessment. A model unreliable for absolute loss prediction may still be reliable for comparing alternatives: the ranking can be right when the numbers are not. Know whether the model is being used for the decision it was designed to support.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-16 bg-surface-low p-10">
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">
+                These five questions are drawn from a framework of ten model risk checks presented in the RAW 2026 talk
+                <span class="italic">&ldquo;Can you trust that number? Ten checks on the assumptions and data behind any risk model.&rdquo;</span>
+            </p>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">
+                The full framework, including validation catalogs, tail estimation guidance, and a structured vendor assessment checklist, is available in the ERQI Model Risk paper.
+            </p>
+            <a href="https://static1.squarespace.com/static/68e77b3b98b4e71981e4e6af/t/6a32eb39bc2a2159e9033ba9/1781721913465/Laura+ERQ.pdf" class="font-label text-xs uppercase tracking-widest text-secondary hover:text-primary transition-colors">
+                Read the full paper &rarr;
+            </a>
+            <p class="font-body text-on-surface-variant text-xs mt-3 opacity-60">
+                DOI: 10.5281/zenodo.21104266
+            </p>
+        </div>
+
+        <div class="mt-10 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/50">
+            Laura Voicu &middot; Apropos Security &middot; 2026
+        </div>
+
+        <!-- Print-only footer -->
+        <div class="print-footer hidden mt-8 text-xs text-gray-500">
+            apropos-security.com/raw2026-five-questions.html
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-low py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-screen-2xl mx-auto gap-6">
+        <div class="font-label text-[10px] uppercase tracking-[0.2em] font-medium text-primary opacity-60">
+            &copy; 2026 Laura Voicu &middot; Apropos Security
+        </div>
+        <div class="flex gap-10 font-label text-[10px] uppercase tracking-[0.2em] font-medium text-on-surface-variant/60">
+            <a class="hover:text-secondary transition-all" href="index.html">Writing</a>
+            <a class="hover:text-secondary transition-all" href="tools.html">Tools</a>
+            <a class="hover:text-secondary transition-all" href="speaking.html">Speaking</a>
+            <a class="hover:text-secondary transition-all" href="about.html">About</a>
+            <a class="hover:text-secondary transition-all" href="https://linkedin.com/in/voiculaura">LinkedIn</a>
+            <a class="hover:text-secondary transition-all" href="https://github.com/security-decision-science">GitHub</a>
+            <a class="hover:text-secondary transition-all" href="https://medium.com/apropos-security">Medium</a>
+            <a class="hover:text-secondary transition-all" href="https://scholar.google.com/citations?user=2Tji4xEAAAAJ">Scholar</a>
+            <a class="hover:text-secondary transition-all" href="https://orcid.org/0009-0008-4623-2532">ORCID</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
