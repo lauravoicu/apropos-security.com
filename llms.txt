@@ -8,7 +8,7 @@ Career: Research scientist at Penn State and ETH Zürich (distributed systems, 2
 Co-Founder and Chief Data Science Officer of the Enterprise Risk Quantification Institute (ERQI). FAIR Institute Standards Committee member, former DACH Chapter Co-Chair and Swiss Chapter Co-Chair, FAIR Ambassador Europe Award winner (2025). CSA lead research author and working group co-chair for "Securing LLM Backed Systems" and core author of the AI Controls Matrix (243 control objectives). Former Global Ambassador for the Global Council for Responsible AI.
 
 ## Advisory
-Laura Voicu is available for paid advisory in cyber risk quantification, exposure management, data-driven security, AI risk, and AI security: monthly retainers, fractional support (one day a week), one-off reviews of risk models, CRQ methods, or vendor quantification claims, advisory board seats, and calls for risk and security practitioners. Details and prices: https://apropos-security.com/advisory.html · Contact: laura.voicu@apropos-security.com
+Laura Voicu advises companies and practitioners in cyber risk quantification, exposure management, data-driven security, AI risk, and AI security: building and improving CRQ programs, monthly retainers, fractional support, reviews of risk models, CRQ methods, or vendor quantification claims, advisory board seats, and calls for risk and security practitioners. Details: https://apropos-security.com/advisory.html · Contact via LinkedIn: https://linkedin.com/in/voiculaura
 
 ## Expertise
 - Data science and applied machine learning for security analytics

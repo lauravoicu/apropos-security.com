@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisory — Laura Voicu, Apropos Security</title>
+    <meta name="description" content="Advisory in cyber risk quantification, exposure management, data-driven security, AI risk and AI security: building and improving CRQ programs, monthly retainers, fractional support, reviews of risk models and CRQ methods, and calls for risk practitioners. Laura Voicu, PhD, CISSP, Zürich.">
+    <meta name="author" content="Laura Cristiana Voicu">
+    <meta property="og:title" content="Advisory — Apropos Security">
+    <meta property="og:description" content="Advisory in cyber risk quantification, exposure management, data-driven security, AI risk and AI security: building and improving CRQ programs, monthly retainers, fractional support, reviews of risk models and CRQ methods, and calls for risk practitioners. Laura Voicu, PhD, CISSP, Zürich.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apropos-security.com/advisory.html">
+    <meta property="og:image" content="https://apropos-security.com/og-card.png">
+    <link rel="icon" type="image/png" href="logo-180.png">
+    <link rel="apple-touch-icon" href="logo-180.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Advisory — Apropos Security">
+    <meta name="twitter:description" content="Advisory in cyber risk quantification, exposure management, data-driven security, AI risk and AI security: building and improving CRQ programs, monthly retainers, fractional support, reviews of risk models and CRQ methods, and calls for risk practitioners. Laura Voicu, PhD, CISSP, Zürich.">
+    <link rel="canonical" href="https://apropos-security.com/advisory.html">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00352c",
+                        "primary-container": "#024e41",
+                        "secondary": "#4da8a8",
+                        "secondary-warm": "#7a6e5d",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c19",
+                        "on-surface-variant": "#3f4848",
+                        "outline-variant": "#bfc8c8",
+                        "surface": "#fafaf7",
+                        "surface-low": "#f4f4ef",
+                        "surface-high": "#eaeae5",
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fafaf7;
+            color: #1a1c19;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .serif-italic { font-family: 'Newsreader', serif; }
+        .scholar-gradient { background: linear-gradient(135deg, #00352c, #024e41); }
+        #menu-toggle.open #bar1 { transform: rotate(45deg) translate(4px, 4px); }
+        #menu-toggle.open #bar2 { opacity: 0; }
+        #menu-toggle.open #bar3 { transform: rotate(-45deg) translate(4px, -4px); }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+
+<!-- Nav -->
+<nav class="fixed w-full top-0 z-50 bg-surface/90 backdrop-blur-xl">
+    <div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.png" alt="Apropos Security" class="h-8 w-8 rounded-full">
+            <span class="font-headline font-bold text-xl tracking-tighter text-primary uppercase">Apropos Security</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-10 font-headline italic text-lg tracking-tight">
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Writing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="publications.html">Publications</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="tools.html">Tools</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="speaking.html">Speaking</a>
+            <a class="text-secondary border-b border-secondary/30" href="advisory.html">Advisory</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar1"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar2"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar3"></span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 px-8 py-6 space-y-4 font-headline italic text-lg tracking-tight">
+        <a class="block text-on-surface-variant" href="index.html" onclick="closeMobileMenu()">Writing</a>
+        <a class="block text-on-surface-variant" href="publications.html" onclick="closeMobileMenu()">Publications</a>
+        <a class="block text-on-surface-variant" href="tools.html" onclick="closeMobileMenu()">Tools</a>
+        <a class="block text-on-surface-variant" href="speaking.html" onclick="closeMobileMenu()">Speaking</a>
+        <a class="block text-secondary" href="advisory.html" onclick="closeMobileMenu()">Advisory</a>
+        <a class="block text-on-surface-variant" href="about.html" onclick="closeMobileMenu()">About</a>
+    </div>
+</nav>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    menuToggle.addEventListener('click', function() {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+    });
+</script>
+
+<main>
+
+<!-- Advisory -->
+<section class="pt-40 pb-24 bg-surface-low" id="advisory">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="mb-20">
+            <h1 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">Advisory</h1>
+            <div class="w-24 h-px bg-secondary"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+            <div class="md:col-span-7">
+                <div class="space-y-6 text-lg font-body font-light leading-relaxed text-on-surface-variant">
+                    <p>
+                        I advise companies and practitioners in five areas: cyber risk quantification, exposure management,
+                        data-driven security, AI risk, and AI security.
+                    </p>
+                    <p>
+                        Typical work: building a cyber risk quantification program or making an existing one more useful;
+                        reviewing whether a risk model or quantification method will hold up with buyers,
+                        insurers, and auditors; model design and validation; the empirical grounding behind risk claims;
+                        measuring security posture and exposure; AI risk governance and securing LLM-based systems.
+                    </p>
+                    <p>
+                        Advisory means judgment on direction and method, in a fixed number of hours.
+                        It is not delivery work or staff augmentation.
+                    </p>
+                </div>
+            </div>
+            <div class="md:col-span-5">
+                <div class="bg-surface p-10">
+                    <span class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary block mb-8">How to start</span>
+                    <div class="space-y-4 text-base font-body text-on-surface leading-relaxed">
+                        <p>A free 15-minute call to see whether I am the right fit for your question.</p>
+                        <p>Write to me on LinkedIn.</p>
+                    </div>
+                    <div class="mt-10 pt-6 border-t border-outline-variant/20">
+                        <a href="https://linkedin.com/in/voiculaura" class="font-label text-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors">LinkedIn &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Formats -->
+<section class="py-24 bg-surface" id="formats">
+    <div class="max-w-screen-2xl mx-auto px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+                <span class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary block mb-8">For companies</span>
+                <div class="space-y-8 font-body text-on-surface">
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">Building or improving a CRQ program</h3>
+                        <p class="text-on-surface-variant font-light">Setting up a cyber risk quantification program, or making an existing one more useful: defining the decisions it should support, choosing methods and data, calibrating against empirical loss data, validating the models, and reporting results that executives and boards can act on.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">Monthly retainer</h3>
+                        <p class="text-on-surface-variant font-light">A monthly call plus async review of documents, models, and decisions. Fixed hours, 30 days' notice.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">Fractional</h3>
+                        <p class="text-on-surface-variant font-light">One day a week, for building or running a risk quantification, exposure management, or AI risk capability.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">One-off review</h3>
+                        <p class="text-on-surface-variant font-light">A written review of a risk model, a CRQ method, or a vendor's quantification claims, with findings you can act on.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">Advisory board</h3>
+                        <p class="text-on-surface-variant font-light">For startups and scale-ups in security, risk, or AI.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary block mb-8">For risk and security practitioners</span>
+                <div class="space-y-8 font-body text-on-surface">
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">Intro call</h3>
+                        <p class="text-on-surface-variant font-light">15 minutes, to check fit.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">Deep-dive call</h3>
+                        <p class="text-on-surface-variant font-light">One hour on your risk model, quantification program, or AI risk question.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">Call and written feedback</h3>
+                        <p class="text-on-surface-variant font-light">A call plus written feedback on a model, tool, or method.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-headline text-primary mb-2">Six months of support</h3>
+                        <p class="text-on-surface-variant font-light">Up to two calls a month over six months.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-low py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-screen-2xl mx-auto gap-6">
+        <div class="font-label text-[10px] uppercase tracking-[0.2em] font-medium text-primary opacity-60">
+            &copy; 2026 Laura Voicu &middot; Apropos Security
+        </div>
+        <div class="flex gap-10 font-label text-[10px] uppercase tracking-[0.2em] font-medium text-on-surface-variant/60">
+            <a class="hover:text-secondary transition-all" href="index.html">Writing</a>
+            <a class="hover:text-secondary transition-all" href="publications.html">Publications</a>
+            <a class="hover:text-secondary transition-all" href="tools.html">Tools</a>
+            <a class="hover:text-secondary transition-all" href="speaking.html">Speaking</a>
+            <a class="hover:text-secondary transition-all" href="about.html">About</a>
+            <a class="hover:text-secondary transition-all" href="https://linkedin.com/in/voiculaura">LinkedIn</a>
+            <a class="hover:text-secondary transition-all" href="https://github.com/security-decision-science">GitHub</a>
+            <a class="hover:text-secondary transition-all" href="https://medium.com/apropos-security">Medium</a>
+            <a class="hover:text-secondary transition-all" href="https://scholar.google.com/citations?user=2Tji4xEAAAAJ">Scholar</a>
+            <a class="hover:text-secondary transition-all" href="https://orcid.org/0009-0008-4623-2532">ORCID</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
