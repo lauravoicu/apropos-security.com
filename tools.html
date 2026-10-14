@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tools & Research — Laura Voicu | Open Source Security Analytics</title>
-    <meta name="description" content="Open-source tools and practitioner resources by Laura Voicu for cyber risk quantification: Security Decision Science notebooks, FAIR Simulator, FAIR-CAM Agent-Based Model, TEF Estimator, LLM Classification Validator, and model risk testing companion documents (vendor validation checklist, documentation template, VaR/CVaR reference).">
+    <meta name="description" content="Open-source tools and practitioner resources by Laura Voicu for cyber risk quantification: Security Decision Science notebooks, FAIR Simulator, FAIR-CAM Agent-Based Model, TEF Estimator, EVIL exploit hazard model, LLM Classification Validator, and model risk testing companion documents (vendor validation checklist, documentation template, VaR/CVaR reference).">
     <meta name="author" content="Laura Cristiana Voicu">
     <meta property="og:title" content="Tools & Research — Laura Voicu">
     <meta property="og:description" content="Open-source tools for cyber risk quantification: notebooks, simulators, agent-based models, LLM validation.">
@@ -130,6 +130,7 @@
             <h1 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">Tools &amp; Research</h1>
             <div class="w-24 h-px bg-secondary"></div>
             <p class="mt-6 text-lg text-on-surface-variant font-body font-light max-w-2xl">Open-source tools for cyber risk quantification. Built to support real decisions.</p>
+            <p class="mt-4 font-body text-sm"><a href="research-map.html" class="text-secondary hover:text-primary transition-colors">How the tools fit together &rarr;</a></p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/10">
@@ -188,6 +189,13 @@
                     <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python &middot; PyPI &middot; CC BY-NC-SA 4.0</span>
                     <h3 class="text-2xl font-headline leading-tight group-hover:italic transition-all">TEF Estimator</h3>
                     <p class="font-body text-on-surface-variant mt-3 text-sm">Data-grounded Threat Event Frequency estimation with vector decomposition. Calibrated against empirical threat data. Available on PyPI.</p>
+                </div>
+            </a>
+            <a href="https://github.com/t0sche/exploit_hazard_model" class="group bg-white p-10 flex flex-col justify-between min-h-[300px] hover:bg-surface-low transition-colors">
+                <div>
+                    <span class="font-label text-[10px] text-secondary tracking-[0.2em] uppercase block mb-6">Python &middot; MIT</span>
+                    <h3 class="text-2xl font-headline leading-tight group-hover:italic transition-all">EVIL &mdash; Exploit Vector Incident Loss</h3>
+                    <p class="font-body text-on-surface-variant mt-3 text-sm">Bayesian exploit hazard model: probability of an exploit-involved incident over a time horizon, and the resulting loss. EPSS, IRIS, and DBIR priors with age-dependent Weibull hazard. With Stephen Shaffer.</p>
                 </div>
             </a>
         </div>

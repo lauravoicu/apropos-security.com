@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Map — Laura Voicu</title>
+    <meta name="description" content="How the open-source tools and research by Laura Voicu fit together: empirical loss data, agent-based control simulation, AI-grounded loss estimation, Monte Carlo FAIR, exploit hazard modelling, and psychometric validation.">
+    <meta name="author" content="Laura Cristiana Voicu">
+    <meta property="og:title" content="Research Map — Laura Voicu">
+    <meta property="og:description" content="How the tools and research fit together: evidence, simulation, estimation, and validation for cyber risk in money.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://apropos-security.com/research-map.html">
+    <meta property="og:image" content="https://apropos-security.com/og-card.png">
+    <link rel="icon" type="image/png" href="logo-180.png">
+    <link rel="apple-touch-icon" href="logo-180.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research Map — Laura Voicu">
+    <meta name="twitter:description" content="How the tools and research fit together: evidence, simulation, estimation, and validation for cyber risk in money.">
+    <link rel="canonical" href="https://apropos-security.com/research-map.html">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00352c",
+                        "primary-container": "#024e41",
+                        "secondary": "#4da8a8",
+                        "secondary-warm": "#7a6e5d",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c19",
+                        "on-surface-variant": "#3f4848",
+                        "outline-variant": "#bfc8c8",
+                        "surface": "#fafaf7",
+                        "surface-low": "#f4f4ef",
+                        "surface-high": "#eaeae5",
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fafaf7;
+            color: #1a1c19;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .serif-italic { font-family: 'Newsreader', serif; }
+        #menu-toggle.open #bar1 { transform: rotate(45deg) translate(4px, 4px); }
+        #menu-toggle.open #bar2 { opacity: 0; }
+        #menu-toggle.open #bar3 { transform: rotate(-45deg) translate(4px, -4px); }
+
+        /* Diagram */
+        .eco {
+            --text: #2D3740; --text-muted: #64748B; --card-bg: #FFFFFF; --border: #E2E4E8; --line: #CBD5E1; --arrow: #94A3B8;
+            --data: #2174A8; --data-bg: #EBF5FB;
+            --sim: #1A7A6D; --sim-bg: #E8F6F3;
+            --est: #6C3FA0; --est-bg: #F0EBF8;
+            --support: #5A6577; --support-bg: #F1F3F5;
+            --val: #C0392B; --val-bg: #FDECEB;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            color: var(--text);
+        }
+        .eco .legend { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; font-size: 13px; }
+        .eco .legend-item { display: flex; align-items: center; gap: 7px; color: var(--text-muted); }
+        .eco .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+        .eco .diagram-scroll { overflow-x: auto; margin: 0 auto 56px; max-width: 960px; }
+        .eco svg.flow { width: 100%; min-width: 720px; height: auto; display: block; }
+        .eco svg text { font-family: inherit; }
+        .eco .details { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 56px; }
+        @media (max-width: 700px) { .eco .details { grid-template-columns: 1fr; } }
+        .eco .detail-card { padding: 24px 26px; background: var(--card-bg); }
+        .eco .detail-card h3 { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .eco .detail-card .tag { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 6px; border-radius: 3px; color: white; }
+        .eco .detail-card .role { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+        .eco .detail-card .with { font-size: 12px; color: var(--text-muted); font-style: italic; margin-bottom: 8px; }
+        .eco .detail-card p { font-size: 13px; line-height: 1.55; margin-top: 6px; }
+        .eco .detail-card .feeds { margin-top: 10px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 10px; }
+        .eco .detail-card .feeds strong { color: var(--text); font-weight: 500; }
+        .eco .detail-card .links { margin-top: 10px; font-size: 12px; color: var(--text-muted); }
+        .eco .detail-card .links a { color: var(--data); text-decoration: none; }
+        .eco .detail-card .links a:hover { text-decoration: underline; }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface">
+
+<!-- Nav -->
+<nav class="fixed w-full top-0 z-50 bg-surface/90 backdrop-blur-xl">
+    <div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="logo.png" alt="Apropos Security" class="h-8 w-8 rounded-full">
+            <span class="font-headline font-bold text-xl tracking-tighter text-primary uppercase">Apropos Security</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-10 font-headline italic text-lg tracking-tight">
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Writing</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="publications.html">Publications</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="tools.html">Tools</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="speaking.html">Speaking</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="advisory.html">Advisory</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="about.html">About</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar1"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar2"></span>
+            <span class="block w-6 h-0.5 bg-primary transition-all duration-300" id="bar3"></span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20 px-8 py-6 space-y-4 font-headline italic text-lg tracking-tight">
+        <a class="block text-on-surface-variant" href="index.html" onclick="closeMobileMenu()">Writing</a>
+        <a class="block text-on-surface-variant" href="publications.html" onclick="closeMobileMenu()">Publications</a>
+        <a class="block text-on-surface-variant" href="tools.html" onclick="closeMobileMenu()">Tools</a>
+        <a class="block text-on-surface-variant" href="speaking.html" onclick="closeMobileMenu()">Speaking</a>
+        <a class="block text-on-surface-variant" href="advisory.html" onclick="closeMobileMenu()">Advisory</a>
+        <a class="block text-on-surface-variant" href="about.html" onclick="closeMobileMenu()">About</a>
+    </div>
+</nav>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
+    menuToggle.addEventListener('click', function() {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            mobileMenu.classList.remove('hidden');
+            menuToggle.classList.add('open');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+    });
+</script>
+
+<main>
+
+<section class="pt-40 pb-24" id="research-map">
+    <div class="max-w-screen-xl mx-auto px-8">
+        <div class="mb-16">
+            <h1 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">Research Map</h1>
+            <div class="w-24 h-px bg-secondary"></div>
+            <p class="mt-6 text-lg text-on-surface-variant font-body font-light max-w-2xl">An integrated stack for measuring cyber and AI risk in money. Empirical loss data, agent-based simulation, AI-grounded estimation, exploit hazard modelling, and psychometric validation &mdash; built as open-source tools, calibrated against a private evidence corpus.</p>
+            <p class="mt-4 font-body text-sm text-on-surface-variant"><a href="tools.html" class="text-secondary hover:text-primary transition-colors">&larr; Tools</a> &middot; <a href="publications.html" class="text-secondary hover:text-primary transition-colors">Publications</a></p>
+        </div>
+
+        <div class="eco">
+            <div class="legend">
+                <div class="legend-item"><div class="legend-dot" style="background: var(--data)"></div> Evidence</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--sim)"></div> Simulation</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--est)"></div> Estimation</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--support)"></div> Supporting input</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--val)"></div> Validation</div>
+            </div>
+
+            <div class="diagram-scroll">
+                <svg class="flow" viewBox="0 0 940 616" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: an empirical loss data corpus calibrates three engines; a threat frequency estimator and a control framework mapper feed them; an exploit incident loss model runs alongside; all produce calibrated risk estimates.">
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 3.5 L 0 7 z" fill="var(--arrow)" />
+                        </marker>
+                        <marker id="arrow-data" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 3.5 L 0 7 z" fill="var(--data)" opacity="0.5" />
+                        </marker>
+                        <marker id="arrow-support" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 3.5 L 0 7 z" fill="var(--support)" opacity="0.5" />
+                        </marker>
+                        <marker id="arrow-val" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 3.5 L 0 7 z" fill="var(--val)" opacity="0.5" />
+                        </marker>
+                    </defs>
+
+                    <!-- LAYER 1: EVIDENCE -->
+                    <rect x="260" y="20" width="420" height="76" rx="6" fill="var(--data-bg)" stroke="var(--data)" stroke-width="1.5"/>
+                    <text x="470" y="46" text-anchor="middle" font-size="15" font-weight="600" fill="var(--data)">Empirical Loss Data Corpus</text>
+                    <text x="470" y="66" text-anchor="middle" font-size="11" fill="var(--text-muted)">curated records from 100+ public sources</text>
+                    <text x="470" y="82" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.7">enforcement &#183; litigation &#183; insurance &#183; threat frequency</text>
+
+                    <!-- Arrows: Evidence to the three calibrated engines -->
+                    <path d="M 380 96 L 128 290" stroke="var(--data)" stroke-width="1.2" fill="none" marker-end="url(#arrow-data)" opacity="0.4" stroke-dasharray="4,3"/>
+                    <path d="M 470 96 L 356 290" stroke="var(--data)" stroke-width="1.2" fill="none" marker-end="url(#arrow-data)" opacity="0.4" stroke-dasharray="4,3"/>
+                    <path d="M 560 96 L 584 290" stroke="var(--data)" stroke-width="1.2" fill="none" marker-end="url(#arrow-data)" opacity="0.4" stroke-dasharray="4,3"/>
+
+                    <text x="300" y="140" text-anchor="middle" font-size="9.5" fill="var(--text-muted)" transform="rotate(-37.6, 300, 140)">loss tables, threat defaults</text>
+                    <text x="404" y="230" text-anchor="start" font-size="9.5" fill="var(--text-muted)">calibration files</text>
+                    <text x="584" y="230" text-anchor="start" font-size="9.5" fill="var(--text-muted)">IRIS benchmarks</text>
+
+                    <!-- LAYER 2: SUPPORTING INPUTS -->
+                    <rect x="20" y="150" width="190" height="60" rx="5" fill="var(--support-bg)" stroke="var(--support)" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="115" y="169" text-anchor="middle" font-size="13" font-weight="600" fill="var(--support)">Threat Frequency Estimator</text>
+                    <text x="115" y="184" text-anchor="middle" font-size="10" fill="var(--text-muted)">How often do threats occur?</text>
+                    <text x="115" y="200" text-anchor="middle" font-size="10" font-style="italic" fill="var(--text-muted)">with Jack Jones</text>
+
+                    <rect x="730" y="150" width="190" height="56" rx="5" fill="var(--support-bg)" stroke="var(--support)" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="825" y="173" text-anchor="middle" font-size="13" font-weight="600" fill="var(--support)">Control Framework Mapper</text>
+                    <text x="825" y="190" text-anchor="middle" font-size="10" fill="var(--text-muted)">Which controls matter?</text>
+
+                    <!-- TEF arrows to the three calibrated engines -->
+                    <path d="M 210 186 L 240 186 L 240 265 L 100 265 L 100 290" stroke="var(--support)" stroke-width="1" fill="none" marker-end="url(#arrow-support)" opacity="0.35" stroke-dasharray="3,2"/>
+                    <path d="M 240 265 L 330 265 L 330 290" stroke="var(--support)" stroke-width="1" fill="none" marker-end="url(#arrow-support)" opacity="0.35" stroke-dasharray="3,2"/>
+                    <path d="M 330 265 L 560 265 L 560 290" stroke="var(--support)" stroke-width="1" fill="none" marker-end="url(#arrow-support)" opacity="0.35" stroke-dasharray="3,2"/>
+                    <text x="455" y="281" text-anchor="middle" font-size="9" fill="var(--text-muted)">threat event frequency</text>
+
+                    <!-- Mapper arrow to simulator only -->
+                    <path d="M 730 168 L 224 168 L 224 290" stroke="var(--support)" stroke-width="1" fill="none" marker-end="url(#arrow-support)" opacity="0.35" stroke-dasharray="3,2"/>
+                    <text x="660" y="161" text-anchor="middle" font-size="9" fill="var(--text-muted)">control mappings</text>
+
+                    <!-- VALIDATION (indirect — validates Mapper outputs) -->
+                    <rect x="730" y="218" width="190" height="38" rx="5" fill="var(--val-bg)" stroke="var(--val)" stroke-width="1" stroke-dasharray="4,2"/>
+                    <text x="825" y="236" text-anchor="middle" font-size="11" font-weight="500" fill="var(--val)">LLM Classification Validator</text>
+                    <text x="825" y="250" text-anchor="middle" font-size="9" fill="var(--text-muted)">validates control mappings</text>
+                    <path d="M 825 218 L 825 206" stroke="var(--val)" stroke-width="1" fill="none" marker-end="url(#arrow-val)" opacity="0.4"/>
+
+                    <!-- LAYER 3: FOUR ENGINES -->
+                    <rect x="20" y="295" width="216" height="110" rx="6" fill="var(--sim-bg)" stroke="var(--sim)" stroke-width="1.5"/>
+                    <text x="128" y="319" text-anchor="middle" font-size="13.5" font-weight="600" fill="var(--sim)">Control Dynamics Simulator</text>
+                    <text x="128" y="337" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">Agent-based FAIR-CAM simulation</text>
+                    <text x="128" y="354" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.8">How do controls degrade and interact?</text>
+                    <text x="128" y="372" text-anchor="middle" font-size="10" font-style="italic" fill="var(--text-muted)">with Jack Jones</text>
+                    <text x="128" y="393" text-anchor="middle" font-size="9.5" font-weight="500" fill="var(--sim)" opacity="0.55">DYNAMIC &#183; PHYSICS-BASED</text>
+
+                    <rect x="248" y="295" width="216" height="110" rx="6" fill="var(--est-bg)" stroke="var(--est)" stroke-width="1.5"/>
+                    <text x="356" y="319" text-anchor="middle" font-size="13.5" font-weight="600" fill="var(--est)">AI Loss Estimation Engine</text>
+                    <text x="356" y="337" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">5 LLM agents deliberate on losses</text>
+                    <text x="356" y="354" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.8">What does a specific breach cost?</text>
+                    <text x="356" y="393" text-anchor="middle" font-size="9.5" font-weight="500" fill="var(--est)" opacity="0.55">AI-GROUNDED &#183; PER-COMPONENT</text>
+
+                    <rect x="476" y="295" width="216" height="110" rx="6" fill="var(--est-bg)" stroke="var(--est)" stroke-width="1.5"/>
+                    <text x="584" y="319" text-anchor="middle" font-size="13.5" font-weight="600" fill="var(--est)">Monte Carlo Risk Engine</text>
+                    <text x="584" y="337" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">Monte Carlo FAIR simulation</text>
+                    <text x="584" y="354" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.8">What is the aggregate portfolio risk?</text>
+                    <text x="584" y="393" text-anchor="middle" font-size="9.5" font-weight="500" fill="var(--est)" opacity="0.55">STATISTICAL &#183; QUICK</text>
+
+                    <rect x="704" y="295" width="216" height="110" rx="6" fill="var(--est-bg)" stroke="var(--est)" stroke-width="1.5"/>
+                    <text x="812" y="319" text-anchor="middle" font-size="13.5" font-weight="600" fill="var(--est)">Exploit Incident Loss Model</text>
+                    <text x="812" y="337" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">EVIL &#183; Bayesian exploit hazard</text>
+                    <text x="812" y="354" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.8">Which vulnerabilities drive incidents?</text>
+                    <text x="812" y="372" text-anchor="middle" font-size="10" font-style="italic" fill="var(--text-muted)">with Stephen Shaffer</text>
+                    <text x="812" y="393" text-anchor="middle" font-size="9.5" font-weight="500" fill="var(--est)" opacity="0.55">BAYESIAN &#183; EPSS / IRIS PRIORS</text>
+
+                    <!-- Engines to outputs -->
+                    <path d="M 128 405 L 128 520" stroke="var(--line)" stroke-width="1" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+                    <path d="M 356 405 L 356 520" stroke="var(--line)" stroke-width="1" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+                    <path d="M 584 405 L 584 520" stroke="var(--line)" stroke-width="1" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+                    <path d="M 812 405 L 812 520" stroke="var(--line)" stroke-width="1" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
+
+                    <!-- OUTPUTS -->
+                    <rect x="20" y="520" width="900" height="76" rx="6" fill="var(--card-bg)" stroke="var(--border)" stroke-width="1"/>
+                    <text x="470" y="548" text-anchor="middle" font-size="13" font-weight="600" fill="var(--text)">Calibrated Risk Estimates</text>
+                    <text x="470" y="568" text-anchor="middle" font-size="11" fill="var(--text-muted)">Loss distributions &#183; Breach probabilities &#183; Control effectiveness &#183; Exploit-driven incident likelihood &#183; Portfolio aggregation</text>
+                    <text x="470" y="585" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.7">Accompanying publications on SSRN / arXiv</text>
+                </svg>
+            </div>
+
+            <!-- DETAIL CARDS -->
+            <div class="details">
+                <div class="detail-card">
+                    <h3><span class="tag" style="background: var(--data)">Evidence</span> Empirical Loss Data Corpus</h3>
+                    <div class="role">The evidence base</div>
+                    <p>Curated records from 100+ public sources covering enforcement actions, litigation outcomes, insurance claims, threat frequency, control effectiveness, and human factors. Private data; open methodology and tooling.</p>
+                    <div class="feeds"><strong>Calibrates:</strong> the simulator, the AI estimation engine, and the Monte Carlo engine with empirical distributions</div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="tag" style="background: var(--sim)">Simulation</span> Control Dynamics Simulator</h3>
+                    <div class="role">How controls actually work</div>
+                    <div class="with">With Jack Jones</div>
+                    <p>Agent-based model implementing FAIR-CAM. Eight agent types simulate control degradation, variance management, budget-constrained remediation, and loss emergence over time. CC BY-NC-SA 4.0.</p>
+                    <div class="links"><a href="https://github.com/security-decision-science/security-decision-labs/tree/main/tools/control-systems-agent-based-model">GitHub</a> &#183; <a href="https://ssrn.com/abstract=6818420">Jones &amp; Voicu (2026), SSRN</a> &#183; <a href="https://arxiv.org/abs/2605.26597">arXiv</a></div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="tag" style="background: var(--est)">Estimation</span> AI Loss Estimation Engine</h3>
+                    <div class="role">What a breach costs, decomposed</div>
+                    <p>Five LLM agents (IR Lead, Legal Counsel, Regulator, Insurer, Plaintiff) deliberate over four rounds to produce per-component FAIR loss distributions. SLEF decomposition: regulatory, litigation, reputation, competitive.</p>
+                    <div class="links">Coming soon &middot; paper in preparation</div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="tag" style="background: var(--est)">Estimation</span> Monte Carlo Risk Engine</h3>
+                    <div class="role">Quick portfolio risk</div>
+                    <p>Monte Carlo FAIR risk quantification with IRIS 2025 benchmarks. Scenario comparison, sensitivity analysis, portfolio aggregation. The fast path for straightforward FAIR analysis.</p>
+                    <div class="links"><a href="https://github.com/security-decision-science/security-decision-labs/tree/main/tools/fair-simulator">GitHub</a></div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="tag" style="background: var(--est)">Estimation</span> Exploit Incident Loss Model (EVIL)</h3>
+                    <div class="role">Which vulnerabilities drive incident risk</div>
+                    <div class="with">With Stephen Shaffer</div>
+                    <p>The Exploit Vector Incident Loss model estimates the probability of at least one exploit-involved incident over a time horizon, and the resulting loss. It starts from EPSS, IRIS, and DBIR priors and updates them with an organisation&rsquo;s own observations; the Local Exploit Hazard framework adds age-dependent Weibull exploit hazard. An experimental implementation ships in CIRCL&rsquo;s Vulnerability-Lookup. MIT.</p>
+                    <div class="links"><a href="https://arxiv.org/abs/2607.24618">Shaffer &amp; Voicu (2026), arXiv</a> &#183; <a href="https://github.com/t0sche/exploit_hazard_model">GitHub</a></div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="tag" style="background: var(--support)">Input</span> Threat Frequency Estimator</h3>
+                    <div class="role">How often threats occur</div>
+                    <div class="with">With Jack Jones</div>
+                    <p>Empirical threat event frequency estimation. Three-anchor triangulation, four-vector decomposition, sector and revenue multipliers from IRIS 2025.</p>
+                    <div class="links"><a href="https://pypi.org/project/tef-estimator/">PyPI</a> &#183; <a href="https://github.com/security-decision-science/security-decision-labs/tree/main/tools/tef-estimator">GitHub</a></div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="tag" style="background: var(--support)">Input</span> Control Framework Mapper</h3>
+                    <div class="role">Which controls matter</div>
+                    <p>Maps any control framework (NIST CSF, ISO 27001, CIS, and others) to VERIS A4 and FAIR-CAM taxonomies. Batch, real-time, and manual modes. 291+ validation tests.</p>
+                    <div class="links"><a href="https://github.com/security-decision-science/security-decision-labs">GitHub</a></div>
+                </div>
+
+                <div class="detail-card">
+                    <h3><span class="tag" style="background: var(--val)">Validation</span> LLM Classification Validator</h3>
+                    <div class="role">Are the AI estimates trustworthy?</div>
+                    <p>Five-dimension psychometric validation for LLM-generated classifications: consistency, discriminant validity, boundary precision, calibration, cross-model agreement. Published with the Cloud Security Alliance (July 2026). Validates Control Framework Mapper outputs; applicable to any LLM classification task.</p>
+                    <div class="links"><a href="https://pypi.org/project/llm-classification-validator/">PyPI</a> &#183; <a href="https://github.com/security-decision-science/security-decision-labs/blob/main/tools/llm-classification-validator">GitHub</a> &#183; <a href="https://cloudsecurityalliance.org/blog/2026/07/02/validating-llm-generated-control-mappings-beyond-aggregate-accuracy">CSA publication</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related publications -->
+        <div class="mb-6">
+            <span class="font-label text-[10px] uppercase tracking-[0.2em] text-secondary block mb-8">Related publications</span>
+        </div>
+        <div class="space-y-0">
+            <div class="border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2026</div>
+                <div class="md:col-span-10">
+                    <h3 class="text-lg font-headline">Modeling Local Exploit Hazard &mdash; A Bayesian Framework for Quantifying Exploit Risk and Operational Efficiency</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Shaffer &amp; Voicu &middot; <a href="https://arxiv.org/abs/2607.24618" class="text-secondary hover:text-primary transition-colors">arXiv</a></p>
+                </div>
+            </div>
+            <div class="border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2026</div>
+                <div class="md:col-span-10">
+                    <h3 class="text-lg font-headline">Control Physiology: An Agent-Based Model of FAIR-CAM Dynamics</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Jones &amp; Voicu &middot; <a href="https://ssrn.com/abstract=6818420" class="text-secondary hover:text-primary transition-colors">SSRN</a> &middot; <a href="https://arxiv.org/abs/2605.26597" class="text-secondary hover:text-primary transition-colors">arXiv</a></p>
+                </div>
+            </div>
+            <div class="border-b border-outline-variant/15 py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2026</div>
+                <div class="md:col-span-10">
+                    <h3 class="text-lg font-headline">Model Risk Testing &amp; Analysis for Cyber Risk Quantification</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">ERQI &middot; <a href="https://doi.org/10.5281/zenodo.21104266" class="text-secondary hover:text-primary transition-colors">Zenodo</a></p>
+                </div>
+            </div>
+            <div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline">
+                <div class="md:col-span-2 font-label text-xs text-secondary-warm tracking-widest">2024</div>
+                <div class="md:col-span-10">
+                    <h3 class="text-lg font-headline">Securing LLM Backed Systems: Essential Authorization Practices</h3>
+                    <p class="font-body text-on-surface-variant mt-1 text-sm">Cloud Security Alliance &middot; Lead author</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-low py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-screen-2xl mx-auto gap-6">
+        <div class="font-label text-[10px] uppercase tracking-[0.2em] font-medium text-primary opacity-60">
+            &copy; 2026 Laura Voicu &middot; Apropos Security
+        </div>
+        <div class="flex gap-10 font-label text-[10px] uppercase tracking-[0.2em] font-medium text-on-surface-variant/60">
+            <a class="hover:text-secondary transition-all" href="index.html">Writing</a>
+            <a class="hover:text-secondary transition-all" href="publications.html">Publications</a>
+            <a class="hover:text-secondary transition-all" href="tools.html">Tools</a>
+            <a class="hover:text-secondary transition-all" href="advisory.html">Advisory</a>
+            <a class="hover:text-secondary transition-all" href="about.html">About</a>
+            <a class="hover:text-secondary transition-all" href="https://linkedin.com/in/voiculaura">LinkedIn</a>
+            <a class="hover:text-secondary transition-all" href="https://github.com/security-decision-science">GitHub</a>
+            <a class="hover:text-secondary transition-all" href="https://medium.com/apropos-security">Medium</a>
+            <a class="hover:text-secondary transition-all" href="https://scholar.google.com/citations?user=2Tji4xEAAAAJ">Scholar</a>
+            <a class="hover:text-secondary transition-all" href="https://orcid.org/0009-0008-4623-2532">ORCID</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
