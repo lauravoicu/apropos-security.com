@@ -3,20 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Map — Laura Voicu</title>
+    <title>How the work fits together — Laura Voicu</title>
     <meta name="description" content="How the open-source tools and research by Laura Voicu fit together: empirical loss data, agent-based control simulation, AI-grounded loss estimation, Monte Carlo FAIR, exploit hazard modelling, and psychometric validation.">
     <meta name="author" content="Laura Cristiana Voicu">
-    <meta property="og:title" content="Research Map — Laura Voicu">
+    <meta property="og:title" content="How the work fits together — Laura Voicu">
     <meta property="og:description" content="How the tools and research fit together: evidence, simulation, estimation, and validation for cyber risk in money.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://apropos-security.com/research-map.html">
+    <meta property="og:url" content="https://apropos-security.com/how-it-fits.html">
     <meta property="og:image" content="https://apropos-security.com/og-card.png">
     <link rel="icon" type="image/png" href="logo-180.png">
     <link rel="apple-touch-icon" href="logo-180.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Research Map — Laura Voicu">
+    <meta name="twitter:title" content="How the work fits together — Laura Voicu">
     <meta name="twitter:description" content="How the tools and research fit together: evidence, simulation, estimation, and validation for cyber risk in money.">
-    <link rel="canonical" href="https://apropos-security.com/research-map.html">
+    <link rel="canonical" href="https://apropos-security.com/how-it-fits.html">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -69,13 +69,13 @@
 
         /* Diagram */
         .eco {
-            --text: #2D3740; --text-muted: #64748B; --card-bg: #FFFFFF; --border: #E2E4E8; --line: #CBD5E1; --arrow: #94A3B8;
-            --data: #2174A8; --data-bg: #EBF5FB;
-            --sim: #1A7A6D; --sim-bg: #E8F6F3;
-            --est: #6C3FA0; --est-bg: #F0EBF8;
-            --support: #5A6577; --support-bg: #F1F3F5;
-            --val: #C0392B; --val-bg: #FDECEB;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --text: #1a1c19; --text-muted: #3f4848; --card-bg: #FFFFFF; --border: #eaeae5; --line: #bfc8c8; --arrow: #bfc8c8;
+            --data: #00352c; --data-bg: #f4f4ef;
+            --sim: #00352c; --sim-bg: #FFFFFF;
+            --est: #00352c; --est-bg: #FFFFFF;
+            --support: #4da8a8; --support-bg: #FFFFFF;
+            --val: #7a6e5d; --val-bg: #f4f4ef;
+            font-family: 'Manrope', sans-serif;
             color: var(--text);
         }
         .eco .legend { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; font-size: 13px; }
@@ -84,18 +84,20 @@
         .eco .diagram-scroll { overflow-x: auto; margin: 0 auto 56px; max-width: 960px; }
         .eco svg.flow { width: 100%; min-width: 720px; height: auto; display: block; }
         .eco svg text { font-family: inherit; }
+        .eco svg text[font-weight="600"] { font-family: 'Newsreader', serif; font-weight: 500; }
         .eco .details { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 56px; }
         @media (max-width: 700px) { .eco .details { grid-template-columns: 1fr; } }
-        .eco .detail-card { padding: 24px 26px; background: var(--card-bg); }
-        .eco .detail-card h3 { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 3px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-        .eco .detail-card .tag { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 6px; border-radius: 3px; color: white; }
+        .eco .detail-card { padding: 36px 40px; background: var(--card-bg); }
+        .eco .detail-card:nth-child(even) { background: #fafaf7; }
+        .eco .detail-card h3 { font-family: 'Newsreader', serif; font-size: 24px; font-weight: 400; color: var(--text); margin-bottom: 6px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+        .eco .detail-card .tag { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.2em; padding: 0; background: none !important; color: #4da8a8; }
         .eco .detail-card .role { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
         .eco .detail-card .with { font-size: 12px; color: var(--text-muted); font-style: italic; margin-bottom: 8px; }
-        .eco .detail-card p { font-size: 13px; line-height: 1.55; margin-top: 6px; }
+        .eco .detail-card p { font-size: 14px; line-height: 1.6; margin-top: 8px; color: var(--text-muted); }
         .eco .detail-card .feeds { margin-top: 10px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 10px; }
         .eco .detail-card .feeds strong { color: var(--text); font-weight: 500; }
         .eco .detail-card .links { margin-top: 10px; font-size: 12px; color: var(--text-muted); }
-        .eco .detail-card .links a { color: var(--data); text-decoration: none; }
+        .eco .detail-card .links a { color: #4da8a8; text-decoration: none; }
         .eco .detail-card .links a:hover { text-decoration: underline; }
     </style>
 </head>
@@ -157,23 +159,22 @@
 <section class="pt-40 pb-24" id="research-map">
     <div class="max-w-screen-xl mx-auto px-8">
         <div class="mb-16">
-            <h1 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">Research Map</h1>
+            <h1 class="text-4xl md:text-5xl font-headline font-light text-primary mb-4">How the work fits together</h1>
             <div class="w-24 h-px bg-secondary"></div>
-            <p class="mt-6 text-lg text-on-surface-variant font-body font-light max-w-2xl">An integrated stack for measuring cyber and AI risk in money. Empirical loss data, agent-based simulation, AI-grounded estimation, exploit hazard modelling, and psychometric validation &mdash; built as open-source tools, calibrated against a private evidence corpus.</p>
+            <p class="mt-6 text-lg text-on-surface-variant font-body font-light max-w-2xl">An integrated stack for measuring cyber risk in money. Empirical loss data, agent-based simulation, AI-grounded estimation, exploit hazard modelling, and psychometric validation &mdash; built as open-source tools, calibrated against a private evidence corpus.</p>
             <p class="mt-4 font-body text-sm text-on-surface-variant"><a href="tools.html" class="text-secondary hover:text-primary transition-colors">&larr; Tools</a> &middot; <a href="publications.html" class="text-secondary hover:text-primary transition-colors">Publications</a></p>
         </div>
 
         <div class="eco">
             <div class="legend">
                 <div class="legend-item"><div class="legend-dot" style="background: var(--data)"></div> Evidence</div>
-                <div class="legend-item"><div class="legend-dot" style="background: var(--sim)"></div> Simulation</div>
-                <div class="legend-item"><div class="legend-dot" style="background: var(--est)"></div> Estimation</div>
+                <div class="legend-item"><div class="legend-dot" style="background: var(--est)"></div> Engines</div>
                 <div class="legend-item"><div class="legend-dot" style="background: var(--support)"></div> Supporting input</div>
                 <div class="legend-item"><div class="legend-dot" style="background: var(--val)"></div> Validation</div>
             </div>
 
             <div class="diagram-scroll">
-                <svg class="flow" viewBox="0 0 940 616" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: an empirical loss data corpus calibrates three engines; a threat frequency estimator and a control framework mapper feed them; an exploit incident loss model runs alongside; all produce calibrated risk estimates.">
+                <svg class="flow" viewBox="0 0 940 616" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: an empirical loss data corpus calibrates three engines; a threat frequency estimator and a control framework mapper feed them; a local exploit hazard model runs alongside; all produce calibrated risk estimates.">
                     <defs>
                         <marker id="arrow" viewBox="0 0 10 7" refX="9" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
                             <path d="M 0 0 L 10 3.5 L 0 7 z" fill="var(--arrow)" />
@@ -212,7 +213,7 @@
 
                     <rect x="730" y="150" width="190" height="56" rx="5" fill="var(--support-bg)" stroke="var(--support)" stroke-width="1" stroke-dasharray="4,2"/>
                     <text x="825" y="173" text-anchor="middle" font-size="13" font-weight="600" fill="var(--support)">Control Framework Mapper</text>
-                    <text x="825" y="190" text-anchor="middle" font-size="10" fill="var(--text-muted)">Which controls matter?</text>
+                    <text x="825" y="190" text-anchor="middle" font-size="10" fill="var(--text-muted)">Where does each control fit?</text>
 
                     <!-- TEF arrows to the three calibrated engines -->
                     <path d="M 210 186 L 240 186 L 240 265 L 100 265 L 100 290" stroke="var(--support)" stroke-width="1" fill="none" marker-end="url(#arrow-support)" opacity="0.35" stroke-dasharray="3,2"/>
@@ -232,8 +233,8 @@
 
                     <!-- LAYER 3: FOUR ENGINES -->
                     <rect x="20" y="295" width="216" height="110" rx="6" fill="var(--sim-bg)" stroke="var(--sim)" stroke-width="1.5"/>
-                    <text x="128" y="319" text-anchor="middle" font-size="13.5" font-weight="600" fill="var(--sim)">Control Dynamics Simulator</text>
-                    <text x="128" y="337" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">Agent-based FAIR-CAM simulation</text>
+                    <text x="128" y="319" text-anchor="middle" font-size="12.5" font-weight="600" fill="var(--sim)">Agent-Based Model of FAIR-CAM</text>
+                    <text x="128" y="337" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">Control dynamics over time</text>
                     <text x="128" y="354" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.8">How do controls degrade and interact?</text>
                     <text x="128" y="372" text-anchor="middle" font-size="10" font-style="italic" fill="var(--text-muted)">with Jack Jones</text>
                     <text x="128" y="393" text-anchor="middle" font-size="9.5" font-weight="500" fill="var(--sim)" opacity="0.55">DYNAMIC &#183; PHYSICS-BASED</text>
@@ -251,11 +252,11 @@
                     <text x="584" y="393" text-anchor="middle" font-size="9.5" font-weight="500" fill="var(--est)" opacity="0.55">STATISTICAL &#183; QUICK</text>
 
                     <rect x="704" y="295" width="216" height="110" rx="6" fill="var(--est-bg)" stroke="var(--est)" stroke-width="1.5"/>
-                    <text x="812" y="319" text-anchor="middle" font-size="13.5" font-weight="600" fill="var(--est)">Exploit Incident Loss Model</text>
-                    <text x="812" y="337" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">EVIL &#183; Bayesian exploit hazard</text>
-                    <text x="812" y="354" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.8">Which vulnerabilities drive incidents?</text>
+                    <text x="812" y="319" text-anchor="middle" font-size="13.5" font-weight="600" fill="var(--est)">Local Exploit Hazard Model</text>
+                    <text x="812" y="337" text-anchor="middle" font-size="10.5" fill="var(--text-muted)">Bayesian exploit hazard</text>
+                    <text x="812" y="354" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.8">Which exploits are likely here?</text>
                     <text x="812" y="372" text-anchor="middle" font-size="10" font-style="italic" fill="var(--text-muted)">with Stephen Shaffer</text>
-                    <text x="812" y="393" text-anchor="middle" font-size="9.5" font-weight="500" fill="var(--est)" opacity="0.55">BAYESIAN &#183; EPSS / IRIS PRIORS</text>
+                    <text x="812" y="393" text-anchor="middle" font-size="9.5" font-weight="500" fill="var(--est)" opacity="0.55">BAYESIAN &#183; SURVIVAL HAZARD</text>
 
                     <!-- Engines to outputs -->
                     <path d="M 128 405 L 128 520" stroke="var(--line)" stroke-width="1" fill="none" marker-end="url(#arrow)" opacity="0.3"/>
@@ -266,7 +267,7 @@
                     <!-- OUTPUTS -->
                     <rect x="20" y="520" width="900" height="76" rx="6" fill="var(--card-bg)" stroke="var(--border)" stroke-width="1"/>
                     <text x="470" y="548" text-anchor="middle" font-size="13" font-weight="600" fill="var(--text)">Calibrated Risk Estimates</text>
-                    <text x="470" y="568" text-anchor="middle" font-size="11" fill="var(--text-muted)">Loss distributions &#183; Breach probabilities &#183; Control effectiveness &#183; Exploit-driven incident likelihood &#183; Portfolio aggregation</text>
+                    <text x="470" y="568" text-anchor="middle" font-size="11" fill="var(--text-muted)">Loss distributions &#183; Breach probabilities &#183; Control effectiveness &#183; Local exploit hazard &#183; Portfolio aggregation</text>
                     <text x="470" y="585" text-anchor="middle" font-size="10" fill="var(--text-muted)" opacity="0.7">Accompanying publications on SSRN / arXiv</text>
                 </svg>
             </div>
@@ -276,12 +277,12 @@
                 <div class="detail-card">
                     <h3><span class="tag" style="background: var(--data)">Evidence</span> Empirical Loss Data Corpus</h3>
                     <div class="role">The evidence base</div>
-                    <p>Curated records from 100+ public sources covering enforcement actions, litigation outcomes, insurance claims, threat frequency, control effectiveness, and human factors. Private data; open methodology and tooling.</p>
+                    <p>Curated records from 100+ public sources covering enforcement actions, litigation outcomes, insurance claims, threat frequency, control effectiveness, and human factors. Private data; methodology and tooling not yet released.</p>
                     <div class="feeds"><strong>Calibrates:</strong> the simulator, the AI estimation engine, and the Monte Carlo engine with empirical distributions</div>
                 </div>
 
                 <div class="detail-card">
-                    <h3><span class="tag" style="background: var(--sim)">Simulation</span> Control Dynamics Simulator</h3>
+                    <h3><span class="tag" style="background: var(--sim)">Simulation</span> Agent-Based Model of FAIR-CAM</h3>
                     <div class="role">How controls actually work</div>
                     <div class="with">With Jack Jones</div>
                     <p>Agent-based model implementing FAIR-CAM. Eight agent types simulate control degradation, variance management, budget-constrained remediation, and loss emergence over time. CC BY-NC-SA 4.0.</p>
@@ -303,10 +304,10 @@
                 </div>
 
                 <div class="detail-card">
-                    <h3><span class="tag" style="background: var(--est)">Estimation</span> Exploit Incident Loss Model (EVIL)</h3>
-                    <div class="role">Which vulnerabilities drive incident risk</div>
+                    <h3><span class="tag" style="background: var(--est)">Estimation</span> Local Exploit Hazard Model</h3>
+                    <div class="role">Which vulnerabilities are likely to be exploited here</div>
                     <div class="with">With Stephen Shaffer</div>
-                    <p>The Exploit Vector Incident Loss model estimates the probability of at least one exploit-involved incident over a time horizon, and the resulting loss. It starts from EPSS, IRIS, and DBIR priors and updates them with an organisation&rsquo;s own observations; the Local Exploit Hazard framework adds age-dependent Weibull exploit hazard. An experimental implementation ships in CIRCL&rsquo;s Vulnerability-Lookup. MIT.</p>
+                    <p>Turns global exploit probabilities (EPSS) into a daily exploit hazard for an organisation&rsquo;s own assets. Control effectiveness is a probability distribution, seeded from expert opinion and updated from telemetry, breach-and-attack simulation, or penetration testing. Constant or age-dependent Weibull hazard; hazards sum from vulnerability to host to organisation, and candidate remediations are ranked by hazard reduction. Implemented by CIRCL in Vulnerability-Lookup. MIT.</p>
                     <div class="links"><a href="https://arxiv.org/abs/2607.24618">Shaffer &amp; Voicu (2026), arXiv</a> &#183; <a href="https://github.com/t0sche/exploit_hazard_model">GitHub</a></div>
                 </div>
 
@@ -318,18 +319,12 @@
                     <div class="links"><a href="https://pypi.org/project/tef-estimator/">PyPI</a> &#183; <a href="https://github.com/security-decision-science/security-decision-labs/tree/main/tools/tef-estimator">GitHub</a></div>
                 </div>
 
-                <div class="detail-card">
+                <div class="detail-card" style="grid-column: 1 / -1">
                     <h3><span class="tag" style="background: var(--support)">Input</span> Control Framework Mapper</h3>
-                    <div class="role">Which controls matter</div>
-                    <p>Maps any control framework (NIST CSF, ISO 27001, CIS, and others) to VERIS A4 and FAIR-CAM taxonomies. Batch, real-time, and manual modes. 291+ validation tests.</p>
-                    <div class="links"><a href="https://github.com/security-decision-science/security-decision-labs">GitHub</a></div>
-                </div>
-
-                <div class="detail-card">
-                    <h3><span class="tag" style="background: var(--val)">Validation</span> LLM Classification Validator</h3>
-                    <div class="role">Are the AI estimates trustworthy?</div>
-                    <p>Five-dimension psychometric validation for LLM-generated classifications: consistency, discriminant validity, boundary precision, calibration, cross-model agreement. Published with the Cloud Security Alliance (July 2026). Validates Control Framework Mapper outputs; applicable to any LLM classification task.</p>
-                    <div class="links"><a href="https://pypi.org/project/llm-classification-validator/">PyPI</a> &#183; <a href="https://github.com/security-decision-science/security-decision-labs/blob/main/tools/llm-classification-validator">GitHub</a> &#183; <a href="https://cloudsecurityalliance.org/blog/2026/07/02/validating-llm-generated-control-mappings-beyond-aggregate-accuracy">CSA publication</a></div>
+                    <div class="role">Where does each control fit</div>
+                    <p>LLM-based. Maps any control framework (NIST CSF, ISO 27001, CIS, and others) to VERIS A4 and FAIR-CAM taxonomies. Batch, real-time, and manual modes. 291+ validation tests.</p>
+                    <p><span class="tag" style="background: var(--val)">Validation</span> An LLM&rsquo;s mapping is an estimate like any other, so the mapper comes with its own validator, the LLM Classification Validator. Five checks: do repeated runs agree; do the labels exist in the target framework; does the mapping match an independently derived one; can it tell near-identical controls apart; does the answer stay stable when the wording changes. Published with the Cloud Security Alliance (July 2026).</p>
+                    <div class="links">Mapper: private &#183; Validator: <a href="https://pypi.org/project/llm-classification-validator/">PyPI</a> &#183; <a href="https://github.com/security-decision-science/security-decision-labs/blob/main/tools/llm-classification-validator">GitHub</a> &#183; <a href="https://cloudsecurityalliance.org/blog/2026/07/02/validating-llm-generated-control-mappings-beyond-aggregate-accuracy">CSA publication</a></div>
                 </div>
             </div>
         </div>
